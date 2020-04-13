@@ -38,4 +38,5 @@ public abstract class Troops extends Actor
     public abstract void march();
     public abstract void target();
     public abstract boolean getTeam();
+    public abstract void attackEnemy();
 }

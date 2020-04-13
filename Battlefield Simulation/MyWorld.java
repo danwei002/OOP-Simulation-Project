@@ -17,9 +17,13 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 900, 1);
+        super(600, 800, 1);
         test = new TroopSpawner(100, 125, 100, 100);
         addObject(test, getWidth() / 2, 100);
+        
+        addObject(new Infantry(true), getWidth() / 2, 100);
+        addObject(new Infantry(true), getWidth() / 2 +100, 100);
+        addObject(new Infantry(false), getWidth() / 2 , 700);
         
         test.summonStatBar(false);
     }
