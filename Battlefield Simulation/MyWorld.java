@@ -13,9 +13,14 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
+    TroopSpawner test;
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 900, 1); 
+        super(600, 900, 1);
+        test = new TroopSpawner(100, 125, 100, 100);
+        addObject(test, getWidth() / 2, 100);
+        
+        test.summonStatBar(false);
     }
 }
