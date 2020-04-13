@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Troops
+comment0.text=\r\n\ lol\ this\ a\ troop\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=void\ act()
+comment2.params=
+comment2.target=void\ die()
+comment3.params=newSight
+comment3.target=void\ changeSight(int)
+comment4.params=
+comment4.target=void\ march()
+comment5.params=
+comment5.target=void\ target()
+comment6.params=
+comment6.target=boolean\ getTeam()
+numComments=7
