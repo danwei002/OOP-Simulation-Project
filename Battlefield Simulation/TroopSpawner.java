@@ -37,8 +37,9 @@ public class TroopSpawner extends Building
      */
     public void act() 
     {
-        currCharge++;
+        currCharge += spawn / spawnDelay;
         if (spawn == spawnDelay) {spawn = 0;}
+        else {spawn++;}
         if (currCharge == maxCharge) {
             getWorld().addObject(new Infantry(true, 100, 3, 3, 150), getX(), getY());
             currCharge = 0;
