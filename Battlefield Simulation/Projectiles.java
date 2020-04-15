@@ -18,6 +18,9 @@ public class Projectiles extends Actor
     // Damage this projectile deals
     protected int damage;
     
+    // The actor that shot this projectile
+    protected Actor shooter;
+    
     public void act() 
     {
         // Add your action code here.
@@ -32,7 +35,7 @@ public class Projectiles extends Actor
         Building b = (Building) getOneIntersectingObject(Building.class);
         Troops t = (Troops) getOneIntersectingObject(Troops.class);
         
-        if (b != null)
+        if (b != null && b != shooter)
         {
             b.takeDamage(damage);
             getWorld().removeObject(this);
