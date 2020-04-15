@@ -19,4 +19,12 @@ public class Artillery extends Building
     {
         // Add your action code here.
     }    
+        
+    /**
+     * Target a building. Artilleries only target enemy buildings.
+     */
+    public void target()
+    {
+        
+    }
 }

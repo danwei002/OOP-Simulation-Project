@@ -16,6 +16,16 @@ public class TroopSpawner extends Building
     // Spawn variable used with spawn delay
     private int spawn = 0;
     
+    /**
+     * Create a Troop Spawner building.
+     * 
+     * @param isRed True if this building belongs to the red team, false if blue team.
+     * @param width Width of the building.
+     * @param height Height of the building.
+     * @param maxHP Maximum HP this building has.
+     * @param maxCharge Amount of charge the building must accumulate to spawn a new troop.
+     * @param delay Rate at which charge is acquired. Larger numbers mean slower charge acquisition.
+     */
     public TroopSpawner(boolean isRed, int width, int height, int maxHP, int maxCharge, int delay)
     {
         statBar = new OZDWStatBar(width, height / 6, 5, maxHP, maxHP, 0, maxCharge);
