@@ -16,12 +16,13 @@ public class TroopSpawner extends Building
     // Spawn variable used with spawn delay
     private int spawn = 0;
     
-    public TroopSpawner(int width, int height, int maxHP, int maxCharge, int delay)
+    public TroopSpawner(boolean isRed, int width, int height, int maxHP, int maxCharge, int delay)
     {
         statBar = new OZDWStatBar(width, height / 6, 5, maxHP, maxHP, 0, maxCharge);
         img.scale(width, height - 10);
         setImage(img);
         
+        this.isRed = isRed;
         this.width = width;
         this.height = height;
         this.maxHP = maxHP;
@@ -41,9 +42,17 @@ public class TroopSpawner extends Building
         if (spawn == spawnDelay) {spawn = 0;}
         else {spawn++;}
         if (currCharge == maxCharge) {
-            getWorld().addObject(new Infantry(true, 100, 3, 3, 150), getX(), getY());
+            spawnTroop();
             currCharge = 0;
         }
         statBar.update(false, currCharge);
-    }    
+    }   
+    
+    /**
+     * Spawn a troop
+     */
+    public void spawnTroop()
+    {
+        getWorld().addObject(new Infantry(isRed, 100, 3, 3, 150), getX(), getY());
+    }
 }

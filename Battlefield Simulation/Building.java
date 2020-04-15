@@ -27,6 +27,9 @@ public abstract class Building extends Actor
     protected int width;
     protected int height;
     
+    // Boolean to store which team this building belongs to
+    protected boolean isRed;
+    
     /**
      * Act - do whatever the Building wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -63,5 +66,15 @@ public abstract class Building extends Actor
     {
         currHP -= damage;
         statBar.update(true, currHP);
+    }
+    
+    /**
+     * Get the team that this building belongs to.
+     * 
+     * @return boolean True if red team, false if blue team
+     */
+    protected boolean getTeam()
+    {
+        return isRed;
     }
 }
