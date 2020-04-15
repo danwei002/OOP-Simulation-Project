@@ -15,14 +15,20 @@ public class Artillery extends Building
     
     private int fireRate;
     private int fireDelay;
+    private int damage;
     
-    public Artillery(boolean isRed, int width, int height, int maxHP, int fireRate)
+    public Artillery(boolean isRed, int width, int height, int maxHP, int fireRate, int damage)
     {
+        statBar = new OZDWStatBar(width, height / 6, 2, maxHP, maxHP, 0, maxCharge);
         this.isRed = isRed;
         this.width = width;
         this.height = height;
         this.maxHP = maxHP;
+        this.currHP = maxHP;
+        this.currCharge = 0;
+        this.maxCharge = 1;
         this.fireRate = fireRate;
+        this.damage = damage;
         
         if (isRed)
         {
@@ -42,17 +48,33 @@ public class Artillery extends Building
      */
     public void act() 
     {
+        if (exploding)
+        {
+            doExplosion();
+            return;
+        }
+        
         target();
         fireDelay++;
         if (fireDelay > fireRate)
         {
             fireDelay = 0;
         }
+
+        if (!statBarDisplayed)
+        {
+            statBarDisplayed = true;
+            summonStatBar(false);
+        }
+        else
+        {
+            statBar.update(true, currHP);
+        }
     }    
        
     public void attack()
     {
-        getWorld().addObject(new ArtilleryBolt(this, 15, getRotation(), 15), getX(), getY());
+        getWorld().addObject(new ArtilleryBolt(this, 15, getRotation(), damage), getX(), getY());
     }   
     
     /**
@@ -67,7 +89,7 @@ public class Artillery extends Building
         double closestDistance = Double.MAX_VALUE;
         for (Building b: buildings)
         {
-            if (b.getTeam() != this.getTeam() && b != this) 
+            if (b.getTeam() != this.getTeam() && b != this && !b.isExploding()) 
             {
                 double distanceTo = getDistance(b);
                 if (distanceTo < closestDistance)

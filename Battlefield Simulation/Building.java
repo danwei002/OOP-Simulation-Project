@@ -1,16 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Building here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
+* Write a description of class Building here.
+* 
+* @author (your name) 
+* @version (a version number or a date)
+*/
 public abstract class Building extends Actor
 {
     // Every building has a stat bar
     protected OZDWStatBar statBar;
-   
+    
+    // Store if the stat bar is on screen
+    protected boolean statBarDisplayed = false;
+    
     // Every building has some amount of maximum HP
     protected int maxHP;
     
@@ -30,13 +33,28 @@ public abstract class Building extends Actor
     // Boolean to store which team this building belongs to
     protected boolean isRed;
     
+    // An array of keep track of explosion gif frames
+    protected GreenfootImage[] explosionFrames = {new GreenfootImage("explosion1.gif"), new GreenfootImage("explosion2.gif"), new GreenfootImage("explosion3.gif"), 
+                                        new GreenfootImage("explosion4.gif"), new GreenfootImage("explosion5.gif"), new GreenfootImage("explosion6.gif"), 
+                                        new GreenfootImage("explosion7.gif"), new GreenfootImage("explosion8.gif"), new GreenfootImage("explosion9.gif"), 
+                                        new GreenfootImage("explosion10.gif"), new GreenfootImage("explosion11.gif"), new GreenfootImage("explosion12.gif"), 
+                                        new GreenfootImage("explosion13.gif"), new GreenfootImage("explosion14.gif"), new GreenfootImage("explosion15.gif"), 
+                                        new GreenfootImage("explosion16.gif"), new GreenfootImage("explosion17.gif"), new GreenfootImage("explosion18.gif"), 
+                                        new GreenfootImage("explosion19.gif")};
+                                        
+    // Boolean to track whether or not this building is currently exploding
+    protected boolean exploding = false;
+    
+    // Explosion array index tracker
+    protected int explodeIndex = 0;
+    
     /**
      * Act - do whatever the Building wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        // Add your action code here.
+        
     }    
     
     /**
@@ -54,7 +72,7 @@ public abstract class Building extends Actor
         {
             getWorld().addObject(statBar, getX(), getY() + height / 2);
         }
-        
+        statBarDisplayed = true;
     }
     
     /**
@@ -65,6 +83,7 @@ public abstract class Building extends Actor
     protected void takeDamage(int damage)
     {
         currHP -= damage;
+        checkDestroyed();
         statBar.update(true, currHP);
     }
     
@@ -76,5 +95,51 @@ public abstract class Building extends Actor
     protected boolean getTeam()
     {
         return isRed;
+    }
+    
+    /**
+     * Check if this building has been destroyed.
+     */
+    protected void checkDestroyed()
+    {
+        if (currHP <= 0)
+        {
+            exploding = true;
+        }
+    }
+   
+    /**
+     * Handle animating the explosion and object removal
+     */
+    protected void doExplosion()
+    {
+        if (!exploding) {return;}
+        if (statBarDisplayed) 
+        {
+            getWorld().removeObject(statBar);
+            statBarDisplayed = false;
+        }
+        
+        if (explodeIndex < 75)
+        {
+            GreenfootImage explodeFrame = explosionFrames[explodeIndex / 4];
+            explodeFrame.scale(width, height);
+            setImage(explodeFrame);
+            explodeIndex++;
+        }
+        else
+        {
+            getWorld().removeObject(this);
+        }
+    }
+    
+    /**
+     * Get whether or not the building is in a state of exploding.
+     * 
+     * @return boolean True if it is exploding, false otherwise.
+     */
+    protected boolean isExploding()
+    {
+        return exploding;
     }
 }

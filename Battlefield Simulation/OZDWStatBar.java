@@ -272,7 +272,7 @@ public class OZDWStatBar extends Actor
     public void act() 
     {
         // keep
-        soundCheck();
+        //soundCheck();
         
         // Animate changes in the health bar's values
         if (hpVal < updtVal)

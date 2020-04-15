@@ -14,6 +14,7 @@ public class MyWorld extends World
      * 
      */
     TroopSpawner test;
+
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,12 +22,13 @@ public class MyWorld extends World
         test = new TroopSpawner(false, 100, 125, 100, 100, 2);
         addObject(test, getWidth() / 4 * 3, 100);
         
-        addObject(new Infantry(true), getWidth() / 2, 100);
-        addObject(new Infantry(true), getWidth() / 2 +100, 100);
-        addObject(new Infantry(false), getWidth() / 2 , 700);
+        //addObject(new Infantry(true), getWidth() / 2, 100);
+        //addObject(new Infantry(true), getWidth() / 2 +100, 100);
+        //addObject(new Infantry(false), getWidth() / 2 , 700);
         
-        test.summonStatBar(false);
+ 
         
-        addObject(new Artillery(true, 65, 65, 100, 100), getWidth() / 4, getHeight() - 100);
+        addObject(new Artillery(true, 65, 65, 1000, 45, 400), getWidth() / 4, getHeight() - 100);
+        addObject(new Artillery(false, 65, 65, 1000, 45, 200), getWidth() / 2, getHeight() / 2);
     }
 }

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Artillery
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Artillery\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=isRed\ width\ height\ maxHP\ fireRate
-comment1.target=Artillery(boolean,\ int,\ int,\ int,\ int)
+comment1.params=isRed\ width\ height\ maxHP\ fireRate\ damage
+comment1.target=Artillery(boolean,\ int,\ int,\ int,\ int,\ int)
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Artillery\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

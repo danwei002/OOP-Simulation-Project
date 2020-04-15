@@ -48,6 +48,18 @@ public class TroopSpawner extends Building
      */
     public void act() 
     {
+        if (exploding)
+        {
+            doExplosion();
+            return;
+        }
+        
+        if (!statBarDisplayed)
+        {
+            statBarDisplayed = true;
+            summonStatBar(false);
+        }
+        
         currCharge += spawn / spawnDelay;
         if (spawn == spawnDelay) {spawn = 0;}
         else {spawn++;}
