@@ -21,7 +21,7 @@ public class Infantry extends Troops
     private int cooldown = 25;
     private int cooldownTimer = cooldown;
     public Infantry(boolean isRed){
-        this(isRed, 100, 5, 1, 100);
+        this(isRed, 100, 5, 5, 100);
     }
     public Infantry(boolean isRed, int hp, int speed, int damage, int sight){
         this.isRed = isRed;
@@ -75,7 +75,7 @@ public class Infantry extends Troops
     }
     
     public void attackEnemy(){
-        getWorld().addObject(new Bullet(20, getRotation()), getX(), getY());
+        getWorld().addObject(new Bullet(20, getRotation(), damage), getX(), getY());
     }
     
     public void target(){

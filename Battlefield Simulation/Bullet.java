@@ -12,15 +12,17 @@ public class Bullet extends Projectiles
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Bullet(int bulletSpeed, int bulletDirection){
+    public Bullet(int bulletSpeed, int bulletDirection, int bulletDamage){
         speed = bulletSpeed;
         direction = bulletDirection;
+        damage = bulletDamage;
         setRotation(direction);
     }
+    
     public void act() 
     {
         // Add your action code here.
         move(speed);
-        checkDestroyed();
+        checkCollision();
     }    
 }

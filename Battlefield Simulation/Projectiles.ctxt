@@ -4,5 +4,6 @@ comment0.text=\r\n\ Write\ a\ description\ of\ class\ Projectiles\ here.\r\n\ \r
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
-comment2.target=void\ checkDestroyed()
+comment2.target=void\ checkCollision()
+comment2.text=\r\n\ Check\ if\ the\ projectile\ collides\ with\ any\ buildings/troops\r\n\ or\ moves\ off\ the\ world.\r\n
 numComments=3

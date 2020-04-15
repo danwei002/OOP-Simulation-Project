@@ -53,4 +53,15 @@ public abstract class Building extends Actor
         }
         
     }
+    
+    /**
+     * Make the building take some amount of damage.
+     * 
+     * @param damage Amount of damage dealt
+     */
+    protected void takeDamage(int damage)
+    {
+        currHP -= damage;
+        statBar.update(true, currHP);
+    }
 }

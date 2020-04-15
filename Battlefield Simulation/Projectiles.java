@@ -14,11 +14,31 @@ public class Projectiles extends Actor
      */
     protected int direction;
     protected int speed;
+    
+    // Damage this projectile deals
+    protected int damage;
+    
     public void act() 
     {
         // Add your action code here.
     }    
-    public void checkDestroyed(){
+    
+    /**
+     * Check if the projectile collides with any buildings/troops
+     * or moves off the world.
+     */
+    protected void checkCollision()
+    {
+        Building b = (Building) getOneIntersectingObject(Building.class);
+        Troops t = (Troops) getOneIntersectingObject(Troops.class);
+        
+        if (b != null)
+        {
+            b.takeDamage(damage);
+            getWorld().removeObject(this);
+            return;
+        }
+        
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
