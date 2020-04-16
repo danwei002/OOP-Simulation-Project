@@ -20,7 +20,8 @@ public class Projectiles extends Actor
     
     // The actor that shot this projectile
     protected Actor shooter;
-    
+    //which team the projectile belongs to
+    protected boolean team;
     public void act() 
     {
         // Add your action code here.
@@ -41,7 +42,11 @@ public class Projectiles extends Actor
             getWorld().removeObject(this);
             return;
         }
-        
+        if(t != null && t.getTeam() != team){
+            t.takeDamage(damage);
+            getWorld().removeObject(this);
+            return;
+        }
         if(isAtEdge()){
             getWorld().removeObject(this);
         }

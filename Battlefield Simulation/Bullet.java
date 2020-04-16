@@ -12,7 +12,8 @@ public class Bullet extends Projectiles
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Bullet(int bulletSpeed, int bulletDirection, int bulletDamage){
+    public Bullet(boolean team, int bulletSpeed, int bulletDirection, int bulletDamage){
+        this.team = team;
         speed = bulletSpeed;
         direction = bulletDirection;
         damage = bulletDamage;

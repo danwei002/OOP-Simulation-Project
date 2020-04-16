@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-import java.util.List;
+import java.util.*;
 /**
  * Write a description of class Infantry here.
  * 
@@ -14,14 +14,27 @@ public class Infantry extends Troops
      * Act - do whatever the Infantry wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    List<Troops> targetList;
+    
     
     private boolean targetingEnemy;
     
     private int cooldown = 25;
     private int cooldownTimer = cooldown;
     public Infantry(boolean isRed){
-        this(isRed, 100, 5, 5, 100);
+        this.isRed = isRed;
+        maxHp = maxHp_Infantry;
+        this.hp = maxHp;
+        this.damage = damage_Infantry;
+        this.speed = speed_Infantry;
+        this.sight = sight_Infantry;
+        if(isRed == true){
+            this.setImage("infantryR.png");
+            direction = 0;
+        }
+        else{
+            this.setImage("infantryB.png");
+            direction = 180;
+        }
     }
     public Infantry(boolean isRed, int hp, int speed, int damage, int sight){
         this.isRed = isRed;
@@ -33,11 +46,11 @@ public class Infantry extends Troops
         
         if(isRed == true){
             this.setImage("infantryR.png");
-            direction = 90;
+            direction = 0;
         }
         else{
             this.setImage("infantryB.png");
-            direction = 270;
+            direction = 180;
         }
     }
     
@@ -71,22 +84,34 @@ public class Infantry extends Troops
     
     public void march(){
         this.setRotation(direction);
-        move(2);
+        move(speed);
     }
     
     public void attackEnemy(){
-        getWorld().addObject(new Bullet(20, getRotation(), damage), getX(), getY());
+        getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());
     }
+    
+    
     
     public void target(){
         boolean enemyInRange = false;
-        targetList = getObjectsInRange(sight, Troops.class);
-        if(targetList.size() > 0){
+        List<Troops> troopList = getObjectsInRange(sight, Troops.class);
+        List<Building> buildingList = getObjectsInRange(sight, Building.class);
+        
+        int targetListSize = troopList.size() + buildingList.size();
+        if(targetListSize > 0){
          
-            for(Troops t : targetList){
+            for(Troops t : troopList){
             
                 if(t.getTeam() != getTeam()){
                     turnTowards(t.getX(), t.getY());
+                    enemyInRange = true;
+                }
+            }
+            for(Building b : buildingList){
+            
+                if(b.getTeam() != getTeam()){
+                    turnTowards(b.getX(), b.getY());
                     enemyInRange = true;
                 }
             }
