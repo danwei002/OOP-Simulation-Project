@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class TroopSpawner here.
@@ -15,6 +16,9 @@ public class TroopSpawner extends Building
     
     // Spawn variable used with spawn delay
     private int spawn = 0;
+    
+    // Used for RNG
+    private Random random = new Random();
     
     /**
      * Create a Troop Spawner building.
@@ -75,6 +79,6 @@ public class TroopSpawner extends Building
      */
     public void spawnTroop()
     {
-        getWorld().addObject(new Infantry(isRed, 100, 3, 3, 150), getX(), getY());
+        getWorld().addObject(new Infantry(isRed, 100, 3, 3, 150), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
     }
 }
