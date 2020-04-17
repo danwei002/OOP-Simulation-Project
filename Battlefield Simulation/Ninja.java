@@ -19,11 +19,11 @@ public class Ninja extends Troops
         this.speed = speed_Infantry;
         this.sight = sight_Infantry;
         if(isRed == true){
-            //this.setImage("ninjaR.png");
+            this.setImage("ninjaR.png");
             direction = 0;
         }
         else{
-            //this.setImage("ninjaB.png");
+            this.setImage("ninjaB.png");
             direction = 180;
         }
     }
