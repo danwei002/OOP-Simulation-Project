@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * lol this a troop
@@ -27,6 +28,9 @@ public abstract class Troops extends Actor
     
     protected int sight;
     
+    protected int cooldown;
+    protected int cooldownTimer;
+    
     public void act() 
     {
         
@@ -48,8 +52,51 @@ public abstract class Troops extends Actor
             getWorld().removeObject(this);
         }
     }
-    public abstract void march();
-    public abstract void target();
-    public abstract boolean getTeam();
+    
+    public void target(){
+        boolean enemyInRange = false;
+        List<Troops> troopList = getObjectsInRange(sight, Troops.class);
+        List<Building> buildingList = getObjectsInRange(sight, Building.class);
+        
+        int targetListSize = troopList.size() + buildingList.size();
+        if(targetListSize > 0){
+         
+        for(Troops t : troopList){
+            
+            if(t.getTeam() != getTeam()){
+                turnTowards(t.getX(), t.getY());
+                enemyInRange = true;
+            }
+        }
+        for(Building b : buildingList){
+            if(b.getTeam() != getTeam()){
+                turnTowards(b.getX(), b.getY());
+                enemyInRange = true;
+            }
+        }
+        if(enemyInRange){
+            if(cooldownTimer <= 0){
+                attackEnemy();
+                cooldownTimer = cooldown;
+            }
+        }
+        else{
+           march();//fix later
+        }
+        }
+        else{
+            march();
+        }
+    }
+    
+    public void march(){
+        this.setRotation(direction);
+        move(speed);
+    }
+    
+    public boolean getTeam(){
+        return isRed;
+    }
+    
     public abstract void attackEnemy();
 }
