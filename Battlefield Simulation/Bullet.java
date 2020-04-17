@@ -20,6 +20,17 @@ public class Bullet extends Projectiles
         setRotation(direction);
     }
     
+    public Bullet(boolean team, int bulletSpeed, int bulletDirection, int bulletDamage, String customImageName){
+        this.team = team;
+        speed = bulletSpeed;
+        direction = bulletDirection;
+        damage = bulletDamage;
+        setRotation(direction);
+        GreenfootImage customImage = new GreenfootImage(customImageName);
+        customImage.scale(30,30);
+        setImage(customImage);
+    }
+    
     public void act() 
     {
         // Add your action code here.

@@ -18,6 +18,11 @@ public abstract class Troops extends Actor
     protected final int damage_Infantry = 20;
     protected final int sight_Infantry = 200;
     
+    protected final int maxHp_Ninja = 50;
+    protected final int speed_Ninja = 8;
+    protected final int damage_Ninja = 40;
+    protected final int sight_Ninja = 125;
+    
     protected int speed;
     protected int maxHp;
     protected int hp;
