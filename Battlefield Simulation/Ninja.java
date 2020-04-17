@@ -13,11 +13,11 @@ public class Ninja extends Troops
         cooldown = 10;
         cooldownTimer = cooldown;
         this.isRed = isRed;
-        maxHp = maxHp_Infantry;
+        maxHp = maxHp_Ninja;
         this.hp = maxHp;
-        this.damage = damage_Infantry;
-        this.speed = speed_Infantry;
-        this.sight = sight_Infantry;
+        this.damage = damage_Ninja;
+        this.speed = speed_Ninja;
+        this.sight = sight_Ninja;
         if(isRed == true){
             this.setImage("ninjaR.png");
             direction = 0;
