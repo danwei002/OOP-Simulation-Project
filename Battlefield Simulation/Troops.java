@@ -23,6 +23,13 @@ public abstract class Troops extends Actor
     protected final int damage_Ninja = 40;
     protected final int sight_Ninja = 125;
     
+    //medic stats
+    protected final int maxHp_Medic = 100;
+    protected final int speed_Medic = 2;
+    protected final int damage_Medic = 20;
+    protected final int sight_Medic = 200;
+    protected final int healAmount_Medic = 20;
+    
     protected int speed;
     protected int maxHp;
     protected int hp;
@@ -104,6 +111,17 @@ public abstract class Troops extends Actor
     protected boolean getTeam(){
         return isRed;
     }
-    
+    public void healMe(int health){
+        hp += health;
+        if(hp >= maxHp){
+            hp = maxHp;
+        }
+    }
+    public int getHp(){
+        return hp;
+    }
+    public int getMaxHp(){
+        return maxHp;
+    }
     public abstract void attackEnemy();
 }
