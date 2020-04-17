@@ -43,17 +43,19 @@ public abstract class Troops extends Actor
     protected void changeSight(int newSight){
         sight = newSight;
     }
-    public void takeDamage(int damage){
+    
+    protected void takeDamage(int damage){
         this.hp -= damage;
         checkDead();
     }
-    public void checkDead(){
+    
+    protected void checkDead(){
         if(hp <= 0){
             getWorld().removeObject(this);
         }
     }
     
-    public void target(){
+    protected void target(){
         boolean enemyInRange = false;
         List<Troops> troopList = getObjectsInRange(sight, Troops.class);
         List<Building> buildingList = getObjectsInRange(sight, Building.class);
@@ -89,12 +91,12 @@ public abstract class Troops extends Actor
         }
     }
     
-    public void march(){
+    protected void march(){
         this.setRotation(direction);
         move(speed);
     }
     
-    public boolean getTeam(){
+    protected boolean getTeam(){
         return isRed;
     }
     
