@@ -40,4 +40,5 @@ public class MyWorld extends World
         //addObject(new Artillery(true, 65, 65, 1000, 45, 400), getWidth() / 4, getHeight() - 100);
         //addObject(new Artillery(false, 65, 65, 1000, 45, 200), getWidth() / 2, getHeight() / 2);
     }
+    
 }
