@@ -53,7 +53,7 @@ public class Medic extends Troops
             if(t.getTeam() != getTeam()){
                 turnTowards(t.getX(), t.getY());
                 enemyInRange = true;
-            }else if (t.getHp() != t.getMaxHp()){
+            }else if (t.getHp() != t.getMaxHp() && t.getTeam() == getTeam()){
                 turnTowards(t.getX(), t.getY());
                 allyInRange = true;
                 break;
