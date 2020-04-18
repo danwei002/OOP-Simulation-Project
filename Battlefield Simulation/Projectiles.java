@@ -36,7 +36,7 @@ public class Projectiles extends Actor
         Building b = (Building) getOneIntersectingObject(Building.class);
         Troops t = (Troops) getOneIntersectingObject(Troops.class);
         
-        if (b != null && b != shooter)
+        if (b != null && b.getTeam() != team) //b != shooter) this messes up my building shooting - owen
         {
             b.takeDamage(damage);
             getWorld().removeObject(this);
