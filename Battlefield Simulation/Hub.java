@@ -54,7 +54,7 @@ public class Hub extends Building
         if (!statBarDisplayed)
         {
             statBarDisplayed = true;
-            summonStatBar(true);
+            summonStatBar(false);
         }
         
         currCharge += spawn / spawnDelay;
