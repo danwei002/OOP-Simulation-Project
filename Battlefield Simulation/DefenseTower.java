@@ -90,7 +90,7 @@ public class DefenseTower extends Building
          
             for(Troops t : troopList){
                 
-                if(t.getTeam() != getTeam()){
+                if(t.getTeam() != getTeam() && t instanceof Troops){
                     if(isRed) turnTowards(t.getX()-25, t.getY()+40);
                     else turnTowards(t.getX()+25, t.getY()+40);
                     enemyInRange = true;

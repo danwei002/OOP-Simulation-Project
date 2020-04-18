@@ -23,35 +23,38 @@ public class MyWorld extends World
         GreenfootImage background = new GreenfootImage("background.jpeg");
         setBackground(background);
         
-        red = new TroopSpawner(false, 100, 125, 100, 100, 1);
-        blue = new TroopSpawner(true, 100, 125, 100, 100, 1);
+        // Hub spawn locations?
+        Hub redHub = new Hub(true, 125, 125, 5000, 200, 5);
+        Hub blueHub = new Hub(false, 125, 125, 5000, 200, 5);
         
-        redtower1 = new DefenseTower(false, 130, 130, 999, 100, 1);
-        redtower2 = new DefenseTower(false, 130, 130, 999, 100, 1);
-        bluetower1 = new DefenseTower(true, 130, 130, 999, 100, 1);
-        bluetower2 = new DefenseTower(true, 130, 130, 999, 100, 1);
+        addObject(redHub, getWidth() / 14, getHeight() / 2);
+        addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
         
-        addObject(red, getWidth() / 8 * 7, getHeight()/2);
-        addObject(blue, getWidth() / 8, getHeight()/2);
+        TroopSpawner redSpawn1 = new TroopSpawner(true, 100, 110, 500, 100, 4);
+        TroopSpawner redSpawn2 = new TroopSpawner(true, 100, 110, 500, 100, 4);
         
-        addObject(redtower1, getWidth() / 4 * 3, getHeight()/2-100);
-        addObject(redtower2, getWidth() / 4 * 3, getHeight()/2+100);
+        addObject(redSpawn1, getWidth() / 9, getHeight() / 4 - 50);
+        addObject(redSpawn2, getWidth() / 9, getHeight() / 4 * 3 + 50);
         
-        addObject(bluetower1, getWidth() / 4, getHeight()/2-100);
-        addObject(bluetower2, getWidth() / 4, getHeight()/2+100);
+        TroopSpawner blueSpawn1 = new TroopSpawner(false, 100, 110, 500, 100, 4);
+        TroopSpawner blueSpawn2 = new TroopSpawner(false, 100, 110, 500, 100, 4);
         
-        addObject(new Infantry(true), 0, getHeight()/2);
-        //addObject(new Infantry(true), 100, getHeight()/2 +100);
-        addObject(new Infantry(false), getWidth() , getHeight()/2);
+        addObject(blueSpawn1, getWidth() / 9 * 8, getHeight() / 4 - 50);
+        addObject(blueSpawn2, getWidth() / 9 * 8, getHeight() / 4 * 3 + 50);
         
-        addObject(new Ninja(true), 0, getHeight()/2+20);
-        addObject(new Ninja(false), getWidth() , getHeight()/2-20);
+        redtower1 = new DefenseTower(true, 130, 130, 999, 100, 1);
+        redtower2 = new DefenseTower(true, 130, 130, 999, 100, 1);
+        bluetower1 = new DefenseTower(false, 130, 130, 999, 100, 1);
+        bluetower2 = new DefenseTower(false, 130, 130, 999, 100, 1);
         
-        addObject(new Medic(true), 0, getHeight()/2+20);
-        addObject(new Medic(false), getWidth() , getHeight()/2-20);
- 
-        //addObject(new Artillery(true, 65, 65, 1000, 45, 400), getWidth() / 4, getHeight() - 100);
-        //addObject(new Artillery(false, 65, 65, 1000, 45, 200), getWidth() / 2, getHeight() / 2);
+        addObject(bluetower1, getWidth() / 4 * 3, getHeight()/2-130);
+        addObject(bluetower2, getWidth() / 4 * 3, getHeight()/2+130);
+        
+        addObject(redtower1, getWidth() / 4, getHeight()/2-130);
+        addObject(redtower2, getWidth() / 4, getHeight()/2+130);
+        
+        
+        
     }
     
 }

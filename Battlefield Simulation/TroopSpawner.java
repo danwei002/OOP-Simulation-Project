@@ -9,7 +9,8 @@ import java.util.*;
  */
 public class TroopSpawner extends Building
 {
-    private GreenfootImage img = new GreenfootImage("barracks.png");
+    private GreenfootImage redImg = new GreenfootImage("barracks.png");
+    private GreenfootImage blueImg = new GreenfootImage("blueBarracks.png");
     
     // Troop spawn delay
     private int spawnDelay;
@@ -33,8 +34,17 @@ public class TroopSpawner extends Building
     public TroopSpawner(boolean isRed, int width, int height, int maxHP, int maxCharge, int delay)
     {
         statBar = new OZDWStatBar(width, height / 6, 5, maxHP, maxHP, 0, maxCharge);
-        img.scale(width, height - 10);
-        setImage(img);
+        
+        if (isRed)
+        {
+            redImg.scale(width, height);
+            setImage(redImg);
+        }
+        else
+        {
+            blueImg.scale(width, height);
+            setImage(blueImg);
+        }
         
         this.isRed = isRed;
         this.width = width;
