@@ -52,9 +52,7 @@ public class MyWorld extends World
         
         addObject(redtower1, getWidth() / 4, getHeight()/2-130);
         addObject(redtower2, getWidth() / 4, getHeight()/2+130);
-        
-        
-        
+
     }
     
 }
