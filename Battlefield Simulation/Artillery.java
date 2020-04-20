@@ -17,6 +17,34 @@ public class Artillery extends Building
     private int fireDelay;
     private int damage;
     
+    private final int artillery_Width = 72;
+    private final int artillery_Height = 72;
+    private final int artillery_maxHp = 200;
+    private final int artillery_fireRate = 10;
+    private final int artillery_damage = 10;
+    
+    public Artillery(boolean isRed)
+    {
+       this.isRed = isRed;
+       this.width = artillery_Width;
+       this.height = artillery_Height;
+       this.maxHP = artillery_maxHp;
+       this.currHP = artillery_maxHp;
+       this.fireRate = artillery_fireRate;
+       this.damage = artillery_damage;
+       statBar = new OZDWStatBar(this.width, this.height / 6, 2, this.maxHP, this.maxHP, 0, 1);
+       if (isRed)
+        {
+            artilleryRed.scale(this.width, this.height);
+            setImage(artilleryRed);
+        }
+        else
+        {
+            artilleryBlue.scale(this.width, this.height);
+            setImage(artilleryBlue);
+        }
+    }
+    
     public Artillery(boolean isRed, int width, int height, int maxHP, int fireRate, int damage)
     {
         statBar = new OZDWStatBar(width, height / 6, 2, maxHP, maxHP, 0, maxCharge);
@@ -29,7 +57,6 @@ public class Artillery extends Building
         this.maxCharge = 1;
         this.fireRate = fireRate;
         this.damage = damage;
-        
         if (isRed)
         {
             artilleryRed.scale(width, height);
@@ -74,7 +101,7 @@ public class Artillery extends Building
        
     public void attack()
     {
-        getWorld().addObject(new ArtilleryBolt(this, 15, getRotation(), damage), getX(), getY());
+        getWorld().addObject(new ArtilleryBolt(isRed, this, 15, getRotation(), damage), getX(), getY());
     }   
     
     /**

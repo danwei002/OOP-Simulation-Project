@@ -30,6 +30,7 @@ public class Hub extends Building
         this.currHP = maxHP;
         this.currCharge = 0;
         this.maxCharge = maxCharge;
+        this.isRed = isRed;
         spawnDelay = delay;
         if (isRed)
         {

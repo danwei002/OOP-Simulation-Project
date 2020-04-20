@@ -42,11 +42,13 @@ public class Projectiles extends Actor
             getWorld().removeObject(this);
             return;
         }
+
         if(t != null && t.getTeam() != team){
             t.takeDamage(damage);
             getWorld().removeObject(this);
             return;
         }
+        
         if(isAtEdge()){
             getWorld().removeObject(this);
         }

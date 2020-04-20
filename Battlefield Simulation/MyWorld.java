@@ -30,14 +30,14 @@ public class MyWorld extends World
         addObject(redHub, getWidth() / 14, getHeight() / 2);
         addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
         
-        TroopSpawner redSpawn1 = new TroopSpawner(true, 100, 110, 500, 100, 4);
-        TroopSpawner redSpawn2 = new TroopSpawner(true, 100, 110, 500, 100, 4);
+        TroopSpawner redSpawn1 = new TroopSpawner(true, 100, 110, 500, 100, 2);
+        TroopSpawner redSpawn2 = new TroopSpawner(true, 100, 110, 500, 100, 2);
         
         addObject(redSpawn1, getWidth() / 9, getHeight() / 4 - 50);
         addObject(redSpawn2, getWidth() / 9, getHeight() / 4 * 3 + 50);
         
-        TroopSpawner blueSpawn1 = new TroopSpawner(false, 100, 110, 500, 100, 4);
-        TroopSpawner blueSpawn2 = new TroopSpawner(false, 100, 110, 500, 100, 4);
+        TroopSpawner blueSpawn1 = new TroopSpawner(false, 100, 110, 500, 100, 2);
+        TroopSpawner blueSpawn2 = new TroopSpawner(false, 100, 110, 500, 100, 2);
         
         addObject(blueSpawn1, getWidth() / 9 * 8, getHeight() / 4 - 50);
         addObject(blueSpawn2, getWidth() / 9 * 8, getHeight() / 4 * 3 + 50);

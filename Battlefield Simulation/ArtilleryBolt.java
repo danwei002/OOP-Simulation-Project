@@ -8,9 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ArtilleryBolt extends Projectiles
 {
-    public ArtilleryBolt(Building shooter, int boltSpeed, int boltDirection, int boltDamage)
+    public ArtilleryBolt(boolean team, Building shooter, int boltSpeed, int boltDirection, int boltDamage)
     {
         this.shooter = shooter;
+        this.team = team;
         speed = boltSpeed;
         direction = boltDirection;
         damage = boltDamage;

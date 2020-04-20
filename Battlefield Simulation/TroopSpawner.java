@@ -20,7 +20,7 @@ public class TroopSpawner extends Building
     
     // Used for RNG
     private Random random = new Random();
-    
+
     /**
      * Create a Troop Spawner building.
      * 
@@ -89,6 +89,22 @@ public class TroopSpawner extends Building
      */
     public void spawnTroop()
     {
-        getWorld().addObject(new Infantry(isRed, 100, 3, 3, 150), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
+        int generate = random.nextInt(4);
+        if (generate == 0)
+        {
+            getWorld().addObject(new Infantry(isRed), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
+        }
+        else if (generate == 1)
+        {
+            getWorld().addObject(new Ninja(isRed), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
+        }
+        else if (generate == 2)
+        {
+            getWorld().addObject(new Medic(isRed), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
+        }
+        else if (generate == 3)
+        {
+            getWorld().addObject(new Tank(isRed), getX() + random.nextInt(200) - 100, getY() + random.nextInt(200) - 100);
+        }
     }
 }

@@ -8,15 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tank extends Troops
 {
-    private int maxHp_Tank = 300;
-    private int damage_Tank = 15; // change this later
-    private int speed_Tank = 1;
-    private int sight_Tank = 135;
-    
-    /**
-     * Act - do whatever the Tank wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public Tank(boolean isRed){
         cooldownTimer = 70;
         cooldown = cooldownTimer;
