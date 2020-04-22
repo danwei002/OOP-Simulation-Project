@@ -83,10 +83,11 @@ public class Hub extends Building
             {
                 if (activeBuildings[i]) {continue;}
                 World w = getWorld();
-                if (i == 0){w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), getWidth() / 9, getHeight() / 4 - 50); return;}
-                else if (i == 1) {w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), getWidth() / 9, getHeight() / 4 * 3 + 50); return;}
-                else if (i == 2) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), getWidth() / 4, getHeight()/2-130); return;}
-                else if (i == 3) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), getWidth() / 4, getHeight()/2+130); return;}
+                if (i == 0){w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_1_Y); return;}
+                else if (i == 1) {w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_2_Y); return;}
+                else if (i == 2) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_1_Y); return;}
+                else if (i == 3) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_2_Y); return;}
+                else {w.addObject(new Artillery(true), Battleground.RED_ART_X, Battleground.RED_ART_OFFSET * (i - 3)); return;} 
             }
         }
         else
@@ -95,10 +96,12 @@ public class Hub extends Building
             {
                 if (activeBuildings[i]) {continue;}
                 World w = getWorld();
-                if (i == 0){w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), getWidth() / 9 * 8, getHeight() / 4 - 50); return;}
-                else if (i == 1) {w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), getWidth() / 9 * 8, getHeight() / 4 * 3 + 50); return;}
-                else if (i == 2) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), getWidth() / 4 * 3, getHeight()/2-130); return;}
-                else if (i == 3) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), getWidth() / 4 * 3, getHeight()/2+130); return;}
+                if (i == 0){w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_1_Y); return;}
+                else if (i == 1) {w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_2_Y); return;}
+                else if (i == 2) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_1_Y); return;}
+                else if (i == 3) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_2_Y); return;}
+                else {w.addObject(new Artillery(false), Battleground.BLUE_ART_X, Battleground.BLUE_ART_OFFSET * (i - 3)); return;} 
+                
             }
         }
     }
@@ -108,61 +111,73 @@ public class Hub extends Building
      */
     private void updateBuildings()
     {
-        if (isRed)
+        if (isRed) // Building detection for the red hub
         {
             for (int i = 0; i < 8; i++)
             {
                 if (i == 0) // Upper spawner
                 {
-                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(getWidth() / 9, getHeight() / 4 - 50, TroopSpawner.class);
+                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_1_Y, TroopSpawner.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 1) // Lower spawner
                 {
-                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(getWidth() / 9, getHeight() / 4 * 3 + 50, TroopSpawner.class);
+                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_2_Y, TroopSpawner.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 2) // Upper defense tower
                 {
-                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(getWidth() / 4, getHeight()/2-130, DefenseTower.class);
+                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(Battleground.RED_DEF_X, Battleground.RED_DEF_1_Y, DefenseTower.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 3) // Lower defense tower
                 {
-                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(getWidth() / 4, getHeight()/2+130, DefenseTower.class);
+                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(Battleground.RED_DEF_X, Battleground.RED_DEF_2_Y, DefenseTower.class);
+                    if (b.size() == 0) {activeBuildings[i] = false;}
+                    else {activeBuildings[i] = true;}
+                }
+                else 
+                {
+                    List<Artillery> b = (List<Artillery>) getWorld().getObjectsAt(Battleground.RED_ART_X, Battleground.RED_ART_OFFSET * (i - 3), Artillery.class); 
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
             }
         }
-        else
+        else // Building detection for the blue hub
         {
             for (int i = 0; i < 8; i++)
             {
                 if (i == 0) // Upper spawner
                 {
-                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(getWidth() / 9 * 8, getHeight() / 4 - 50, TroopSpawner.class);
+                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_1_Y, TroopSpawner.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 1) // Lower spawner
                 {
-                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(getWidth() / 9 * 8, getHeight() / 4 * 3 + 50, TroopSpawner.class);
+                    List<TroopSpawner> b = (List<TroopSpawner>) getWorld().getObjectsAt(Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_2_Y, TroopSpawner.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 2) // Upper defense tower
                 {
-                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(getWidth() / 4 * 3, getHeight()/2-130, DefenseTower.class);
+                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_1_Y, DefenseTower.class);
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
                 else if (i == 3) // Lower defense tower
                 {
-                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(getWidth() / 4 * 3, getHeight()/2+130, DefenseTower.class);
+                    List<DefenseTower> b = (List<DefenseTower>) getWorld().getObjectsAt(Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_2_Y, DefenseTower.class);
+                    if (b.size() == 0) {activeBuildings[i] = false;}
+                    else {activeBuildings[i] = true;}
+                }
+                else 
+                {
+                    List<Artillery> b = (List<Artillery>) getWorld().getObjectsAt(Battleground.BLUE_ART_X, Battleground.BLUE_ART_OFFSET * (i - 3), Artillery.class); 
                     if (b.size() == 0) {activeBuildings[i] = false;}
                     else {activeBuildings[i] = true;}
                 }
@@ -172,7 +187,7 @@ public class Hub extends Building
     
     private boolean allBuildingsActive()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 8; i++)
         {
             if (!activeBuildings[i]) {return false;}
         }
