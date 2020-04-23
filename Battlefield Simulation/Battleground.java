@@ -44,7 +44,6 @@ public class Battleground extends World
      */
     TroopSpawner red,blue;
     DefenseTower redtower1,redtower2,bluetower1,bluetower2;
-    
     public Battleground()
     {    
         super(960, 640, 1);
@@ -81,8 +80,5 @@ public class Battleground extends World
         
         addObject(bluetower1, BLUE_DEF_X, BLUE_DEF_1_Y);
         addObject(bluetower2, BLUE_DEF_X, BLUE_DEF_2_Y);
-        
-        
-
     }
 }
