@@ -90,6 +90,6 @@ public class Medic extends Troops
     }
     public void healAlly(){
        getWorld().addObject(new HealBullet(this, getTeam(),10, getRotation(), healAmount), getX(), getY());
-
+       
     }
 }

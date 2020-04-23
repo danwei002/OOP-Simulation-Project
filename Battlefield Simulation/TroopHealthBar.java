@@ -37,11 +37,14 @@ public class TroopHealthBar extends Actor
     private int width;
     private int height;
     private int borderWidth;
-     
+    
+    private int xOffset;
+    private int yOffset;
     // Canvas
     private GreenfootImage img;
     private GreenfootImage textImg;
     
+    private Troops target;
     /**
      * Creates a generic TroopHealthBar with default dimensions and values.
      */
@@ -81,7 +84,7 @@ public class TroopHealthBar extends Actor
      * @param hpVal Initial/starting value for the bar.
      * @param maxHpVal Maximum possible value for the bar.
      */
-    public TroopHealthBar(int width, int height, int borderWidth, int hpVal, int maxHpVal)
+    public TroopHealthBar(int width, int height, int borderWidth, int hpVal, int maxHpVal, Troops target, int x, int y)
     {
         this.maxHpVal = maxHpVal;
         this.hpVal = hpVal;
@@ -110,6 +113,10 @@ public class TroopHealthBar extends Actor
         img.fillRect(borderWidth + filledWidth, borderWidth, emptyWidth, height - 2 * borderWidth);
 
         setImage(img);
+        
+        this.target = target;
+        this.xOffset = x;
+        this.yOffset = y;
     }
 
     /**
@@ -135,8 +142,9 @@ public class TroopHealthBar extends Actor
         {
             updtVal = hpVal;
         }
+        
+        this.setLocation(target.getX() + xOffset, target.getY() + yOffset);//follow troop it's attached to
     }
-    
     /**
      * Updates the TroopHealthBar's current value with a new value. Also updates the appearance of the TroopHealthBar accordingly.
      * 

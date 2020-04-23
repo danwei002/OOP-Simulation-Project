@@ -29,13 +29,15 @@ public abstract class Troops extends Actor
     protected final int speed_Medic = 2;
     protected final int damage_Medic = 20;
     protected final int sight_Medic = 200;
-    protected final int healAmount_Medic = 20;
+    protected final int healAmount_Medic = 10;
     
     // Tank stats
     protected final int maxHp_Tank = 300;
     protected final int damage_Tank = 15; // change this later
     protected final int speed_Tank = 1;
     protected final int sight_Tank = 135;
+    
+    protected final int healthBarY = -30;
     
     protected int speed;
     protected int maxHp;
@@ -50,12 +52,20 @@ public abstract class Troops extends Actor
     protected int cooldown;
     protected int cooldownTimer;
     
+    protected TroopHealthBar healthBar;
     public void act() 
     {
-        
+    }
+    public void addedToWorld(World w){
+        createHealthbar();
+    }
+    protected void createHealthbar(){
+        healthBar = new TroopHealthBar(50, 10, 1, hp, maxHp, this, 0, healthBarY);
+        getWorld().addObject(healthBar, getX(), getY());
     }
     
     protected void die(){
+        getWorld().removeObject(healthBar);
         getWorld().removeObject(this);
     }
     
@@ -65,12 +75,13 @@ public abstract class Troops extends Actor
     
     protected void takeDamage(int damage){
         this.hp -= damage;
+        healthBar.update(hp);
         checkDead();
     }
     
     protected void checkDead(){
         if(hp <= 0){
-            getWorld().removeObject(this);
+            die();
         }
     }
     
@@ -123,6 +134,7 @@ public abstract class Troops extends Actor
         if(hp >= maxHp){
             hp = maxHp;
         }
+        healthBar.update(hp);
     }
     public int getHp(){
         return hp;
