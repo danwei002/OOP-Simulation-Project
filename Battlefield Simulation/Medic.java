@@ -47,7 +47,12 @@ public class Medic extends Troops
         
         int targetListSize = troopList.size() + buildingList.size();
         if(targetListSize > 0){
-         
+        for(Building b : buildingList){
+            if(b.getTeam() != getTeam()){
+                turnTowards(b.getX(), b.getY());
+                enemyInRange = true;
+            }
+        } 
         for(Troops t : troopList){
             
             if(t.getTeam() != getTeam()){
@@ -59,12 +64,7 @@ public class Medic extends Troops
                 break;
             }
         }
-        for(Building b : buildingList){
-            if(b.getTeam() != getTeam()){
-                turnTowards(b.getX(), b.getY());
-                enemyInRange = true;
-            }
-        }
+        
         if(allyInRange){
            if(cooldownTimer <= 0){
                 healAlly();
