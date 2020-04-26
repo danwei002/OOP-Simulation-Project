@@ -38,6 +38,9 @@ public class Battleground extends World
     public static final int BLUE_ART_X = 560;
     public static final int BLUE_ART_OFFSET = 120;
     
+    // Battle music
+    public static GreenfootSound selectedTrack; // This needs to be public so that other classes (the buttons) can set it
+    
     /**
      * Constructor for objects of class Battleground.
      * 
@@ -52,8 +55,8 @@ public class Battleground extends World
         setBackground(background);
         
         // Hub spawn locations?
-        Hub redHub = new Hub(true, 125, 125, 5000, 500, 5);
-        Hub blueHub = new Hub(false, 125, 125, 5000, 500, 5);
+        Hub redHub = new Hub(true, 125, 125, 5000, 200, 5);
+        Hub blueHub = new Hub(false, 125, 125, 5000, 200, 5);
         
         addObject(redHub, getWidth() / 14, getHeight() / 2);
         addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
@@ -80,5 +83,13 @@ public class Battleground extends World
         
         addObject(bluetower1, BLUE_DEF_X, BLUE_DEF_1_Y);
         addObject(bluetower2, BLUE_DEF_X, BLUE_DEF_2_Y);
+        
+        selectedTrack.setVolume(69);
+        selectedTrack.playLoop();
+    }
+    
+    public void started()
+    {
+        
     }
 }
