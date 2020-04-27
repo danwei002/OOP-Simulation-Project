@@ -14,6 +14,9 @@ public class MusicSelect extends World
     public final static GreenfootSound battleMusic1 = new GreenfootSound("battleMusic1.mp3");
     public final static GreenfootSound battleMusic2 = new GreenfootSound("battleMusic2.mp3");
     public final static GreenfootSound battleMusic3 = new GreenfootSound("battleMusic3.mp3");
+    
+    // Menu music
+    public final static GreenfootSound menuMusic = new GreenfootSound("menuMusic.mp3");
     /**
      * Constructor for objects of class MusicSelect.
      * 
@@ -32,5 +35,10 @@ public class MusicSelect extends World
         
         Soundtrack3 btn3 = new Soundtrack3();
         addObject(btn3, getWidth() / 2, getHeight() / 2 + 180);
+    }
+    
+    public void started()
+    {
+        menuMusic.playLoop();
     }
 }
