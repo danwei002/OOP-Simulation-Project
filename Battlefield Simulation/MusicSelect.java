@@ -31,18 +31,18 @@ public class MusicSelect extends World
         
         // Track 1 button
         Soundtrack1 btn1 = new Soundtrack1();
-        addObject(btn1, getWidth() / 2, getHeight() / 2 - 100);
+        addObject(btn1, getWidth() / 2, getHeight() / 2 - 120);
         
         // Track 2 button
         Soundtrack2 btn2 = new Soundtrack2();
-        addObject(btn2, getWidth() / 2, getHeight() / 2 + 40);
+        addObject(btn2, getWidth() / 2, getHeight() / 2 + 20);
         
         // Track 3 button
         Soundtrack3 btn3 = new Soundtrack3();
-        addObject(btn3, getWidth() / 2, getHeight() / 2 + 180);
+        addObject(btn3, getWidth() / 2, getHeight() / 2 + 150);
         
         // Back button
         BackBtn backBtn = new BackBtn(new MainMenu());
-        addObject(backBtn, getWidth() - 140, getHeight() - 50);
+        addObject(backBtn, getWidth() - 140, getHeight() - 65);
     }
 }

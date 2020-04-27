@@ -15,6 +15,14 @@ public abstract class Button extends Actor
     protected GreenfootImage selectedImg;
     protected GreenfootImage unselectedImg;
     
+    // Hover over sound
+    protected GreenfootSound hoverSound = new GreenfootSound("hoverSound.mp3");
+    
+    // Track if the sound has been played yet
+    protected boolean playedHoverSound = false;
+    
+    // Clicked sound
+    protected GreenfootSound clickSound = new GreenfootSound("btnClicked.mp3");
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -25,6 +33,7 @@ public abstract class Button extends Actor
         
         if (Greenfoot.mouseClicked(this))
         {
+            clickSound.play();
             onClick();
         }
     }    
@@ -46,10 +55,16 @@ public abstract class Button extends Actor
             if (btn.size() > 0 && btn.get(0) == this)
             {
                 setImage(selectedImg);
+                if (!playedHoverSound) 
+                {
+                    hoverSound.play();
+                    playedHoverSound = true;
+                }
             }
             else
             {
                 setImage(unselectedImg);
+                playedHoverSound = false;
             }
         }
     }
