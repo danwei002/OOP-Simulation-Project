@@ -50,7 +50,7 @@ public class Battleground extends World
     public Battleground()
     {    
         super(960, 640, 1);
-        MusicSelect.menuMusic.stop();
+        MainMenu.menuMusic.stop();
         GreenfootImage background = new GreenfootImage("background.jpeg");
         setBackground(background);
         

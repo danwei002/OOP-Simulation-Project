@@ -6,45 +6,23 @@ import java.util.*;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Soundtrack3 extends Actor
+public class Soundtrack3 extends Button
 {
-    private GreenfootImage selectedImg = new GreenfootImage("sTrack3selected.png");
-    private GreenfootImage unselectedImg = new GreenfootImage("sTrack3Unselected.png");
     /**
      * Act - do whatever the Soundtrack1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Soundtrack3()
     {
+        selectedImg = new GreenfootImage("sTrack3selected.png");
+        unselectedImg = new GreenfootImage("sTrack3Unselected.png");
         setImage(unselectedImg);
     }
     
-    public void act() 
+    public void onClick()
     {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-        
-        if (mouse != null)
-        {
-            int x = mouse.getX();
-            int y = mouse.getY();
-            List<Soundtrack3> btn = (List<Soundtrack3>) getWorld().getObjectsAt(x, y, Soundtrack3.class);
-            
-            if (btn.size() > 0 && btn.get(0) == this)
-            {
-                setImage(selectedImg);
-            }
-            else
-            {
-                setImage(unselectedImg);
-            }
-            
-        }
-        
-        if (Greenfoot.mouseClicked(this))
-        {
-            Battleground.selectedTrack = MusicSelect.battleMusic3;
-            World w = new Battleground();
-            Greenfoot.setWorld(w);
-        }
-    }      
+        Battleground.selectedTrack = MusicSelect.battleMusic3;
+        World w = new Battleground();
+        Greenfoot.setWorld(w);
+    }
 }
