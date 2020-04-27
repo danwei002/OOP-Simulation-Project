@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Building
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Building\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Buildings\ are\ Greenfoot\ Actors\ that\ remain\ stationary\r\n\ on\ the\ battlefield.\ They\ have\ different\ uses,\ such\ as\ training\ troops,\r\n\ attacking\ other\ buildings,\ defending\ their\ territory,\ or\ building\r\n\ more\ buildings.\ Each\ building\ has\ its\ own\ health.\ When\ its\ health\ reaches\ zero,\r\n\ the\ building\ will\ explode\ and\ be\ destroyed.\r\n\ \r\n\ @author\ Daniel\ Wei\ &\ Owen\ Zhu\r\n\ @version\ April\ 27,\ 2020\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Building\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

@@ -2,10 +2,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Hub here.
+ * Hubs are Buildings (Greenfoot Actors) that serve as the "command centre"
+ * for a team. If the Hub is destroyed (if its health reaches 0), the team
+ * who owns that Hub will lose the battle. Hubs construct buildings if it
+ * detects there is an open spot for a building to be built and it has enough
+ * charge to do so.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei 
+ * @version April 27, 2020
  */
 public class Hub extends Building
 {
@@ -24,6 +28,16 @@ public class Hub extends Building
     // Track the active buildings on the field
     private boolean[] activeBuildings = new boolean[8];
     
+    /**
+     * Create a Hub building of the specified team (red or blue), width, height, maximum HP, maximum charge, and charge accumulation delay.
+     * 
+     * @param isRed True if this Hub belongs to the red team, false if it belongs to the blue team.
+     * @param width Width of this Hub.
+     * @param height Height of this Hub.
+     * @param maxHP Maximum HP of this Hub.
+     * @param maxCharge Total charge this Hub must accumulate to use its ability.
+     * @param delay Rate at which this Hub accumulates charge. Lower delay results in faster charge accumulation.
+     */
     public Hub(boolean isRed, int width, int height, int maxHP, int maxCharge, int delay)
     {
         statBar = new OZDWStatBar(width - 50, height / 6, 5, maxHP, maxHP, 0, maxCharge);
@@ -75,6 +89,9 @@ public class Hub extends Building
         statBar.update(false, currCharge);
     }    
     
+    /**
+     * Spawn a building in an empty preset spot.
+     */
     private void spawnBuilding()
     {
         if (isRed)
@@ -185,6 +202,9 @@ public class Hub extends Building
         }
     }
     
+    /**
+     * Determine whether or not all buildings are currently still standing on the Battlefield.
+     */
     private boolean allBuildingsActive()
     {
         for (int i = 0; i < 8; i++)

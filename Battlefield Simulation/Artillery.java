@@ -3,10 +3,13 @@ import java.util.*;
 import java.lang.Math;
 
 /**
- * Write a description of class Artillery here.
+ * Artilleries are Buildings (Greenfoot Actors) that only target
+ * and shoot the nearest enemy building. They will ignore all troops and do not
+ * shoot allied buildings. Artilleries shoot by turning towards their
+ * target and rapidly firing projectiles at them.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
 public class Artillery extends Building
 {
@@ -23,6 +26,11 @@ public class Artillery extends Building
     private final int artillery_fireRate = 10;
     private final int artillery_damage = 10;
     
+    /**
+     * Creates an Artillery with the specified team colour (red or blue).
+     * 
+     * @param isRed True if this Artillery belongs to the red team, false if it belongs to the blue team.
+     */
     public Artillery(boolean isRed)
     {
        this.isRed = isRed;
@@ -45,6 +53,16 @@ public class Artillery extends Building
         }
     }
     
+    /**
+     * Creates an Artillery with the specified team colour (red or blue), dimensions, fire rate, and damage.
+     * 
+     * @param isRed True if this Artillery belongs to the red team, false if it belongs to the blue team.
+     * @param width Width of this Artillery.
+     * @param height Height of this Artillery.
+     * @param maxHP Maximum HP of this Artillery.
+     * @param fireRate Firing rate/delay of this Artillery. Lower numbers equal faster rates of fire (shorter delay between shots).
+     * @param damage Damage each projectile shot by the Artillery will deal to a target.
+     */
     public Artillery(boolean isRed, int width, int height, int maxHP, int fireRate, int damage)
     {
         statBar = new OZDWStatBar(width, height / 6, 2, maxHP, maxHP, 0, maxCharge);
@@ -99,13 +117,16 @@ public class Artillery extends Building
         }
     }    
        
+    /**
+     * Attack the targetted building by shooting an ArtilleryBolt at it.
+     */
     public void attack()
     {
         getWorld().addObject(new ArtilleryBolt(isRed, this, 15, getRotation(), damage), getX(), getY());
     }   
     
     /**
-     * Target a building. Artilleries only target enemy buildings.
+     * Target the nearest enemy building.
      */
     public void target()
     {
@@ -140,6 +161,9 @@ public class Artillery extends Building
     /**
      * Utility function to get the distance a building is away
      * from the artillery.
+     * 
+     * @param other The building to get distance from.
+     * @return double The distance to the other building.
      */
     private double getDistance(Building other)
     {

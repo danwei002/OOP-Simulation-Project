@@ -1,10 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
-* Write a description of class Building here.
+* Buildings are Greenfoot Actors that remain stationary
+* on the battlefield. They have different uses, such as training troops,
+* attacking other buildings, defending their territory, or building
+* more buildings. Each building has its own health. When its health reaches zero,
+* the building will explode and be destroyed.
 * 
-* @author (your name) 
-* @version (a version number or a date)
+* @author Daniel Wei & Owen Zhu
+* @version April 27, 2020
 */
 public abstract class Building extends Actor
 {

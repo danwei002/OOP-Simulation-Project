@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MainMenu here.
+ * MainMenu is the World that the user will see when
+ * they first load into the simulation. From there they can
+ * start the simulation or change the simulation parameters.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
 public class MainMenu extends World
 {
+    // Background image
     private GreenfootImage bkgrnd = new GreenfootImage("mainMenu.png");
     
     // Menu music
@@ -23,7 +26,7 @@ public class MainMenu extends World
         bkgrnd.scale(960, 640);
         setBackground(bkgrnd);
         
-        Start startBtn = new Start();
+        StartBtn startBtn = new StartBtn();
         addObject(startBtn, getWidth() / 2, getHeight() / 2 - 100);
     }
     

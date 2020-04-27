@@ -1,20 +1,27 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Start here.
+ * StartBtn is a Button that
+ * starts the battle simulation when clicked.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
-public class Start extends Button
+public class StartBtn extends Button
 {
-    public Start()
+    /**
+     * Create a StartBtn.
+     */
+    public StartBtn()
     {
         selectedImg = new GreenfootImage("startBtnselected.png");
         unselectedImg = new GreenfootImage("startBtnUnselected.png");
         setImage(unselectedImg);
     }
     
+    /**
+     * Behaviour when clicked.
+     */
     public void onClick()
     {
         World w = new MusicSelect();

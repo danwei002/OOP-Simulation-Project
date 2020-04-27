@@ -1,16 +1,17 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Soundtrack1 here.
+ * Soundtrack1 is a simple Button that allows
+ * the user to select and listen to the first
+ * of three soundtracks in the battle simulation.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
 public class Soundtrack1 extends Button
 {
     /**
-     * Act - do whatever the Soundtrack1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Create a Soundtrack1 button.
      */
     public Soundtrack1()
     {
@@ -18,7 +19,10 @@ public class Soundtrack1 extends Button
         unselectedImg = new GreenfootImage("sTrack1Unselected.png");
         setImage(unselectedImg);
     }
- 
+    
+    /**
+     * Behaviour when clicked.
+     */
     public void onClick()
     {
         Battleground.selectedTrack = MusicSelect.battleMusic1;

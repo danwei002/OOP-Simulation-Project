@@ -21,7 +21,6 @@ public class DefenseTower extends Building
     // Spawn variable used with spawn delay
     private int spawn = 0;
     
-    
     /**
      * Create a Troop Spawner building.
      * 
@@ -81,6 +80,9 @@ public class DefenseTower extends Building
         statBar.update(false, currCharge);
     }
     
+    /**
+     * Target an enemy troop.
+     */
     public void target(){
         boolean enemyInRange = false;
         List<Troops> troopList = getObjectsInRange(sight, Troops.class);
@@ -104,6 +106,9 @@ public class DefenseTower extends Building
         } 
     }
     
+    /**
+     * Shoot the targetted enemy with a Laser.
+     */
     public void shoot(){
         if(isRed)
             getWorld().addObject(new Laser(getTeam(),10, getRotation(), damage, "redShots.png"), getX()+25, getY()-40);

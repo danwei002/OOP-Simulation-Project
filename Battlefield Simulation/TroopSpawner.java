@@ -2,10 +2,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class TroopSpawner here.
+ * TroopSpawners are Buildings (Greenfoot Actors) that spawn
+ * troops to march down the battle field to try to win the battle.
+ * They randomly spawn a type of troop that marches down to the opposite
+ * end of the battle field. TroopSpawners will only spawn one troop
+ * at a time, and can only spawn them when they have accumulated
+ * enough charge.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
 public class TroopSpawner extends Building
 {
@@ -85,7 +90,7 @@ public class TroopSpawner extends Building
     }   
     
     /**
-     * Spawn a troop
+     * Spawn a random troop.
      */
     public void spawnTroop()
     {

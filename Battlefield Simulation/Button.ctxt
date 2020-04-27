@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Button
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Button\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Button\ is\ the\ parent\ class\ for\ numerous\ Greenfoot\ Actors\ that\ does\r\n\ what\ its\ name\ implies,\ it\ acts\ as\ a\ button\ that\ can\ be\ clicked\ to\ do\ something.\r\n\ Buttons\ will\ indicate\ when\ they\ are\ being\ hovered\ over\ by\ changing\ their\ images\r\n\ accordingly.\r\n\ \r\n\ @author\ Daniel\ Wei\ \r\n\ @version\ April\ 27,\ 2020\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Button\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
@@ -9,4 +9,5 @@ comment2.target=void\ hoverCheck()
 comment2.text=\r\n\ Checks\ if\ the\ cursor\ is\ hovering\ over\ the\ button\r\n\ and\ changes\ image\ accordingly\r\n
 comment3.params=
 comment3.target=void\ onClick()
+comment3.text=\r\n\ What\ the\ button\ should\ do\ when\ clicked\r\n
 numComments=4

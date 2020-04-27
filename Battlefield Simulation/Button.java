@@ -2,15 +2,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Button here.
+ * Button is the parent class for numerous Greenfoot Actors that does
+ * what its name implies, it acts as a button that can be clicked to do something.
+ * Buttons will indicate when they are being hovered over by changing their images
+ * accordingly.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei 
+ * @version April 27, 2020
  */
 public abstract class Button extends Actor
 {
     protected GreenfootImage selectedImg;
     protected GreenfootImage unselectedImg;
+    
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -50,5 +54,8 @@ public abstract class Button extends Actor
         }
     }
     
+    /**
+     * What the button should do when clicked
+     */ 
     public abstract void onClick();
 }

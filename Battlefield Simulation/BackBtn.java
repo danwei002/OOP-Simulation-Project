@@ -1,16 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Back here.
+ * BackBtn is a Button (Greenfoot Actor) that
+ * returns to the previous world when clicked.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version April 27, 2020
  */
-public class Back extends Button
+public class BackBtn extends Button
 {
     private World previousWorld; // the world this button should return to when clicked
     
-    public Back(World previousWorld)
+    /**
+     * Create a BackBtn that returns the user to a specified world.
+     * 
+     * @param previousWorld The world to return the user to when this button is clicked.
+     */
+    public BackBtn(World previousWorld)
     {
         this.previousWorld = previousWorld;
         selectedImg = new GreenfootImage("backBtnselected.png");
@@ -18,6 +24,9 @@ public class Back extends Button
         setImage(unselectedImg);
     }
     
+    /**
+     * Behaviour when clicked.
+     */
     public void onClick()
     {
         Greenfoot.setWorld(previousWorld);
