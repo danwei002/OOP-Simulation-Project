@@ -34,5 +34,8 @@ public class MusicSelect extends World
         
         Soundtrack3 btn3 = new Soundtrack3();
         addObject(btn3, getWidth() / 2, getHeight() / 2 + 180);
+        
+        Back backBtn = new Back(new MainMenu());
+        addObject(backBtn, getWidth() - 140, getHeight() - 50);
     }
 }
