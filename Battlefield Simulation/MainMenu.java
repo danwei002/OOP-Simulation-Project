@@ -14,7 +14,7 @@ public class MainMenu extends World
     private GreenfootImage bkgrnd = new GreenfootImage("mainMenu.png");
     
     // Menu music
-    public final static GreenfootSound menuMusic = new GreenfootSound("menuMusic.mp3");
+    public final static GreenfootSound menuMusic = new GreenfootSound("menuMusic.wav");
     /**
      * Constructor for objects of class MainMenu.
      * 

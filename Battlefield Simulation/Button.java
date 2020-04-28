@@ -22,7 +22,7 @@ public abstract class Button extends Actor
     protected boolean playedHoverSound = false;
     
     // Clicked sound
-    protected GreenfootSound clickSound = new GreenfootSound("btnClicked.mp3");
+    protected GreenfootSound clickSound = new GreenfootSound("btnClicked.wav");
     /**
      * Act - do whatever the Button wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
