@@ -28,6 +28,13 @@ public class MainMenu extends World
         
         StartBtn startBtn = new StartBtn();
         addObject(startBtn, getWidth() / 2, getHeight() / 2 - 100);
+        
+        OptionsBtn optionsBtn = new OptionsBtn();
+        addObject(optionsBtn, getWidth() / 2, getHeight() / 2 + 20);
+        
+        // Track 3 button
+        InfoBtn infoBtn = new InfoBtn();
+        addObject(infoBtn, getWidth() / 2, getHeight() / 2 + 150);
     }
     
     public void started()
