@@ -8,6 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Ninja extends Troops
 {
+    
+    public boolean invulnerability = true;
+    
     //
     public Ninja(boolean isRed){
         cooldown = 10;
@@ -70,6 +73,22 @@ public class Ninja extends Troops
         }
     }
     
+    protected void march(){
+        this.setRotation(direction);
+        move(speed);
+        invulnerability = true;
+        getImage().setTransparency(100);
+    }
+    
+    protected void takeDamage(int damage){
+        if(invulnerability){
+            return;
+        }
+        this.hp -= damage;
+        healthBar.update(hp);
+        checkDead();
+    }
+    
     public void act() 
     {
         target();
@@ -80,5 +99,7 @@ public class Ninja extends Troops
     
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),15, getRotation(), damage, "ninjaStar.png"), getX(), getY());
+        invulnerability = false;
+        getImage().setTransparency(255);
     }
 }
