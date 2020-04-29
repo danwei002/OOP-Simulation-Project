@@ -43,11 +43,9 @@ public class Battleground extends World
     
     // Variables for simulation changes by the user
     public static int RED_HUB_HP = 5000;
-    public static int RED_HUB_MAX_CHARGE = 200;
     public static int RED_HUB_CHARGE_DELAY = 5;
     
     public static int BLUE_HUB_HP = 5000;
-    public static int BLUE_HUB_MAX_CHARGE = 200;
     public static int BLUE_HUB_CHARGE_DELAY = 5;
     
     /**
@@ -64,8 +62,8 @@ public class Battleground extends World
         setBackground(background);
         
         // Hub spawn locations?
-        Hub redHub = new Hub(true, 125, 125, RED_HUB_HP, RED_HUB_MAX_CHARGE, RED_HUB_CHARGE_DELAY);
-        Hub blueHub = new Hub(false, 125, 125, BLUE_HUB_HP, BLUE_HUB_MAX_CHARGE, BLUE_HUB_CHARGE_DELAY);
+        Hub redHub = new Hub(true, 125, 125, RED_HUB_HP, 200, RED_HUB_CHARGE_DELAY);
+        Hub blueHub = new Hub(false, 125, 125, BLUE_HUB_HP, 200, BLUE_HUB_CHARGE_DELAY);
         
         addObject(redHub, getWidth() / 14, getHeight() / 2);
         addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
