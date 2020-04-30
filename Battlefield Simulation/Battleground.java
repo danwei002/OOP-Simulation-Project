@@ -48,6 +48,15 @@ public class Battleground extends World
     public static int BLUE_HUB_HP = 5000;
     public static int BLUE_HUB_CHARGE_DELAY = 5;
     
+    public static int RED_TROOP_SPAWN_RATE = 1;
+    public static int BLUE_TROOP_SPAWN_RATE = 2;
+    
+    public static int RED_DEF_MAX_CHARGE = 100;
+    public static int BLUE_DEF_MAX_CHARGE = 100;
+    
+    public static int RED_ART_FIRE_RATE = 15;
+    public static int BLUE_ART_FIRE_RATE = 15;
+    
     /**
      * Constructor for objects of class Battleground.
      * 
@@ -61,29 +70,28 @@ public class Battleground extends World
         GreenfootImage background = new GreenfootImage("background.jpeg");
         setBackground(background);
         
-        // Hub spawn locations?
         Hub redHub = new Hub(true, 125, 125, RED_HUB_HP, 200, RED_HUB_CHARGE_DELAY);
         Hub blueHub = new Hub(false, 125, 125, BLUE_HUB_HP, 200, BLUE_HUB_CHARGE_DELAY);
         
         addObject(redHub, getWidth() / 14, getHeight() / 2);
         addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
         
-        TroopSpawner redSpawn1 = new TroopSpawner(true, 100, 110, 500, 100, 2);
-        TroopSpawner redSpawn2 = new TroopSpawner(true, 100, 110, 500, 100, 2);
+        TroopSpawner redSpawn1 = new TroopSpawner(true);
+        TroopSpawner redSpawn2 = new TroopSpawner(true);
         
         addObject(redSpawn1, RED_BARRACK_X, RED_BARRACK_1_Y);
         addObject(redSpawn2, RED_BARRACK_X, RED_BARRACK_2_Y);
         
-        TroopSpawner blueSpawn1 = new TroopSpawner(false, 100, 110, 500, 100, 2);
-        TroopSpawner blueSpawn2 = new TroopSpawner(false, 100, 110, 500, 100, 2);
+        TroopSpawner blueSpawn1 = new TroopSpawner(false);
+        TroopSpawner blueSpawn2 = new TroopSpawner(false);
         
         addObject(blueSpawn1, BLUE_BARRACK_X, BLUE_BARRACK_1_Y);
         addObject(blueSpawn2, BLUE_BARRACK_X, BLUE_BARRACK_2_Y);
         
-        redtower1 = new DefenseTower(true, 130, 130, 999, 100, 1);
-        redtower2 = new DefenseTower(true, 130, 130, 999, 100, 1);
-        bluetower1 = new DefenseTower(false, 130, 130, 999, 100, 1);
-        bluetower2 = new DefenseTower(false, 130, 130, 999, 100, 1);
+        redtower1 = new DefenseTower(true, 130, 130, 999, RED_DEF_MAX_CHARGE, 1);
+        redtower2 = new DefenseTower(true, 130, 130, 999, RED_DEF_MAX_CHARGE, 1);
+        bluetower1 = new DefenseTower(false, 130, 130, 999, BLUE_DEF_MAX_CHARGE, 1);
+        bluetower2 = new DefenseTower(false, 130, 130, 999, BLUE_DEF_MAX_CHARGE, 1);
         
         addObject(redtower1, RED_DEF_X, RED_DEF_1_Y);
         addObject(redtower2, RED_DEF_X, RED_DEF_2_Y);

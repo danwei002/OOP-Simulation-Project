@@ -100,10 +100,10 @@ public class Hub extends Building
             {
                 if (activeBuildings[i]) {continue;}
                 World w = getWorld();
-                if (i == 0){w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_1_Y); return;}
-                else if (i == 1) {w.addObject(new TroopSpawner(true, 100, 110, 500, 100, 2), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_2_Y); return;}
-                else if (i == 2) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_1_Y); return;}
-                else if (i == 3) {w.addObject(new DefenseTower(true, 130, 130, 999, 100, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_2_Y); return;}
+                if (i == 0){w.addObject(new TroopSpawner(true), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_1_Y); return;}
+                else if (i == 1) {w.addObject(new TroopSpawner(true), Battleground.RED_BARRACK_X, Battleground.RED_BARRACK_2_Y); return;}
+                else if (i == 2) {w.addObject(new DefenseTower(true, 130, 130, 999, Battleground.RED_DEF_MAX_CHARGE, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_1_Y); return;}
+                else if (i == 3) {w.addObject(new DefenseTower(true, 130, 130, 999, Battleground.RED_DEF_MAX_CHARGE, 1), Battleground.RED_DEF_X, Battleground.RED_DEF_2_Y); return;}
                 else {w.addObject(new Artillery(true), Battleground.RED_ART_X, Battleground.RED_ART_OFFSET * (i - 3)); return;} 
             }
         }
@@ -113,10 +113,10 @@ public class Hub extends Building
             {
                 if (activeBuildings[i]) {continue;}
                 World w = getWorld();
-                if (i == 0){w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_1_Y); return;}
-                else if (i == 1) {w.addObject(new TroopSpawner(false, 100, 110, 500, 100, 2), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_2_Y); return;}
-                else if (i == 2) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_1_Y); return;}
-                else if (i == 3) {w.addObject(new DefenseTower(false, 130, 130, 999, 100, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_2_Y); return;}
+                if (i == 0){w.addObject(new TroopSpawner(false), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_1_Y); return;}
+                else if (i == 1) {w.addObject(new TroopSpawner(false), Battleground.BLUE_BARRACK_X, Battleground.BLUE_BARRACK_2_Y); return;}
+                else if (i == 2) {w.addObject(new DefenseTower(false, 130, 130, 999, Battleground.BLUE_DEF_MAX_CHARGE, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_1_Y); return;}
+                else if (i == 3) {w.addObject(new DefenseTower(false, 130, 130, 999, Battleground.BLUE_DEF_MAX_CHARGE, 1), Battleground.BLUE_DEF_X, Battleground.BLUE_DEF_2_Y); return;}
                 else {w.addObject(new Artillery(false), Battleground.BLUE_ART_X, Battleground.BLUE_ART_OFFSET * (i - 3)); return;} 
                 
             }

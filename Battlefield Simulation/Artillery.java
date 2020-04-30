@@ -23,7 +23,6 @@ public class Artillery extends Building
     private final int artillery_Width = 72;
     private final int artillery_Height = 72;
     private final int artillery_maxHp = 200;
-    private final int artillery_fireRate = 10;
     private final int artillery_damage = 10;
     
     /**
@@ -38,16 +37,18 @@ public class Artillery extends Building
        this.height = artillery_Height;
        this.maxHP = artillery_maxHp;
        this.currHP = artillery_maxHp;
-       this.fireRate = artillery_fireRate;
+       
        this.damage = artillery_damage;
        statBar = new OZDWStatBar(this.width, this.height / 6, 2, this.maxHP, this.maxHP, 0, 1);
        if (isRed)
         {
+            this.fireRate = Battleground.RED_ART_FIRE_RATE;
             artilleryRed.scale(this.width, this.height);
             setImage(artilleryRed);
         }
         else
         {
+            this.fireRate = Battleground.BLUE_ART_FIRE_RATE;
             artilleryBlue.scale(this.width, this.height);
             setImage(artilleryBlue);
         }

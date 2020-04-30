@@ -25,9 +25,43 @@ public class TroopSpawner extends Building
     
     // Used for RNG
     private Random random = new Random();
-
+    
+    // Constants
+    private final int WIDTH = 100;
+    private final int HEIGHT = 110;
+    private final int HEALTH = 500;
+    private final int CHARGE = 200;
     /**
-     * Create a Troop Spawner building.
+     * Create a Troop Spawner building for the specified team.
+     * 
+     * @param isRed True if red team, false if blue team.
+     */
+    public TroopSpawner(boolean isRed)
+    {
+        this.isRed = isRed;
+        width = WIDTH;
+        height = HEIGHT;
+        maxCharge = CHARGE;
+        currCharge = 0;
+        maxHP = HEALTH;
+        currHP = HEALTH;
+        if (this.isRed)
+        {
+            redImg.scale(width, height);
+            setImage(redImg);
+            spawnDelay = Battleground.RED_TROOP_SPAWN_RATE;
+        }
+        else
+        {
+            blueImg.scale(width, height);
+            setImage(blueImg);
+            spawnDelay = Battleground.BLUE_TROOP_SPAWN_RATE;
+        }
+        statBar = new OZDWStatBar(width, height / 6, 5, maxHP, maxHP, 0, maxCharge);
+    }
+    
+    /**
+     * Create a Troop Spawner building for the specified team with specified dimensions, HP, charge, and delay.
      * 
      * @param isRed True if this building belongs to the red team, false if blue team.
      * @param width Width of the building.
