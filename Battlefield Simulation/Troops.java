@@ -1,3 +1,4 @@
+
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
@@ -51,7 +52,7 @@ public abstract class Troops extends Actor
     
     protected int cooldown;
     protected int cooldownTimer;
-    
+    Building closestBuilding;
     protected TroopHealthBar healthBar;
     public void act() 
     {
@@ -88,11 +89,8 @@ public abstract class Troops extends Actor
     protected void target(){
         boolean enemyInRange = false;
         List<Troops> troopList = getObjectsInRange(sight, Troops.class);
-        List<Building> buildingList = getObjectsInRange(sight, Building.class);
         
-        int targetListSize = troopList.size() + buildingList.size();
-        if(targetListSize > 0){
-         
+        
         for(Troops t : troopList){
             
             if(t.getTeam() != getTeam()){
@@ -100,12 +98,8 @@ public abstract class Troops extends Actor
                 enemyInRange = true;
             }
         }
-        for(Building b : buildingList){
-            if(b.getTeam() != getTeam()){
-                turnTowards(b.getX(), b.getY());
-                enemyInRange = true;
-            }
-        }
+        
+        
         if(enemyInRange){
             if(cooldownTimer <= 0){
                 attackEnemy();
@@ -113,18 +107,47 @@ public abstract class Troops extends Actor
             }
         }
         else{
-           march();//fix later
+    
+            closestBuilding = getClosestBuilding(getWorld().getObjects(Building.class));
+            
+            if(closestBuilding != null){
+                turnTowards(closestBuilding.getX(), closestBuilding.getY());
+                if(distance(closestBuilding, this) <= sight){
+                    if(cooldownTimer <= 0){
+                        attackEnemy();
+                        cooldownTimer = cooldown;
+                    }
+                }
+                else move(speed);
+            }
         }
+      }
+    
+    protected Building getClosestBuilding(List<Building> buildings){
+        Building closestBuilding = null;
+        for(Building b : buildings){
+            if(b.getTeam() != getTeam()){
+                closestBuilding = b;
+                break;
+            }
         }
-        else{
-            march();
+        for(Building b : buildings){
+            if(b.getTeam() != getTeam()){
+                if(distance(b, this) < distance(closestBuilding, this)){
+                    closestBuilding = b;
+                }
+            }
         }
+        return closestBuilding;
+    }
+    protected static int distance(Actor a, Actor b){
+        int xx = a.getX() -b.getX();
+        int yy = a.getY() - b.getY();
+        
+        
+        return (int)Math.sqrt(xx*xx +yy*yy);
     }
     
-    protected void march(){
-        this.setRotation(direction);
-        move(speed);
-    }
     
     protected boolean getTeam(){
         return isRed;

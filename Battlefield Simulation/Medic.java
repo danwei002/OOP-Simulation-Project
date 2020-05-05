@@ -25,11 +25,9 @@ public class Medic extends Troops
         this.healAmount = healAmount_Medic;
         if(isRed == true){
             this.setImage("medicR.png");
-            direction = 0;
         }
         else{
             this.setImage("medicB.png");
-            direction = 180;
         }
     }
     public void act() 
@@ -46,7 +44,7 @@ public class Medic extends Troops
         List<Building> buildingList = getObjectsInRange(sight, Building.class);
         
         int targetListSize = troopList.size() + buildingList.size();
-        if(targetListSize > 0){
+        
         for(Building b : buildingList){
             if(b.getTeam() != getTeam()){
                 turnTowards(b.getX(), b.getY());
@@ -78,11 +76,18 @@ public class Medic extends Troops
             }
         }
         else{
-           march();//fix later
-        }
-        }
-        else{
-            march();
+            closestBuilding = getClosestBuilding(getWorld().getObjects(Building.class));
+            
+            if(closestBuilding != null){
+                turnTowards(closestBuilding.getX(), closestBuilding.getY());
+                if(distance(closestBuilding, this) <= sight){
+                    if(cooldownTimer <= 0){
+                        attackEnemy();
+                        cooldownTimer = cooldown;
+                    }
+                }
+                else move(speed);
+            }
         }
     }
     public void attackEnemy(){
