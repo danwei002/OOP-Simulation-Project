@@ -66,7 +66,7 @@ public class Battleground extends World
     {    
         super(960, 640, 1);
         MainMenu.menuMusic.stop();
-        GreenfootImage background = new GreenfootImage("background.jpeg");
+        GreenfootImage background = new GreenfootImage("SimBG.png");
         setBackground(background);
         
         redHub = new Hub(true, 125, 125, RED_HUB_HP, 200, RED_HUB_CHARGE_DELAY);
