@@ -7,6 +7,7 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ target()
+comment3.text=\r\n\ targets\ allies\ for\ healing\ before\ acting\ like\ a\ regular\ troop\r\n
 comment4.params=
 comment4.target=void\ attackEnemy()
 comment5.params=

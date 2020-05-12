@@ -16,7 +16,6 @@ public class Infantry extends Troops
      */
     
     
-    private boolean targetingEnemy;
     
     public Infantry(boolean isRed){
         cooldown = 25;

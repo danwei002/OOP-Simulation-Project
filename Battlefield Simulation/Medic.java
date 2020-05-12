@@ -25,11 +25,9 @@ public class Medic extends Troops
         this.healAmount = healAmount_Medic;
         if(isRed == true){
             this.setImage("medicR.png");
-            direction = 0;
         }
         else{
             this.setImage("medicB.png");
-            direction = 180;
         }
     }
     public void act() 
@@ -40,50 +38,28 @@ public class Medic extends Troops
             cooldownTimer--;
         }
     }    
+    /**
+     * targets allies for healing before acting like a regular troop
+     */
+    @Override
     protected void target(){
-        boolean enemyInRange = false, allyInRange = false;
-        List<Troops> troopList = getObjectsInRange(sight, Troops.class);
-        List<Building> buildingList = getObjectsInRange(sight, Building.class);
+        boolean allyInRange = false;
         
-        int targetListSize = troopList.size() + buildingList.size();
-        if(targetListSize > 0){
-        for(Building b : buildingList){
-            if(b.getTeam() != getTeam()){
-                turnTowards(b.getX(), b.getY());
-                enemyInRange = true;
-            }
-        } 
-        for(Troops t : troopList){
-            
-            if(t.getTeam() != getTeam()){
-                turnTowards(t.getX(), t.getY());
-                enemyInRange = true;
-            }else if (t.getHp() != t.getMaxHp() && t.getTeam() == getTeam()){
-                turnTowards(t.getX(), t.getY());
+        for(Troops t: getObjectsInRange(sight, Troops.class)){
+            if (t.getTeam() == getTeam() && t.getHp() < t.getMaxHp()){//target damaged allies
                 allyInRange = true;
+                turnTowards(t.getX(),t.getY());
                 break;
             }
         }
         
         if(allyInRange){
-           if(cooldownTimer <= 0){
-                healAlly();
-                cooldownTimer = cooldown;
-            } 
-        }
-        else if(enemyInRange){
             if(cooldownTimer <= 0){
-                attackEnemy();
+                healAlly();
                 cooldownTimer = cooldown;
             }
         }
-        else{
-           march();//fix later
-        }
-        }
-        else{
-            march();
-        }
+        else super.target();//if no allies in range, attack enemy troops/buildings
     }
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());

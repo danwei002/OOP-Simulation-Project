@@ -19,11 +19,9 @@ public class Tank extends Troops
         this.sight = sight_Tank;
         if(isRed == true){
             this.setImage("TANKR.png");
-            direction = 0;
         }
         else{
             this.setImage("TANKB.png");
-            direction = 180;
         }
     }
     
@@ -38,11 +36,9 @@ public class Tank extends Troops
         this.sight = sight;
         if(isRed == true){
             this.setImage("TANKR.png");
-            direction = 0;
         }
         else{
             this.setImage("TANKB.png");
-            direction = 180;
         }
     }
     
