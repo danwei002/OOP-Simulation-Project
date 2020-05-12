@@ -57,12 +57,11 @@ public class Battleground extends World
     public static int RED_ART_FIRE_RATE = 15;
     public static int BLUE_ART_FIRE_RATE = 15;
     
-    /**
-     * Constructor for objects of class Battleground.
-     * 
-     */
-    TroopSpawner red,blue;
-    DefenseTower redtower1,redtower2,bluetower1,bluetower2;
+    // Buildings present on the battlefield at the start of the simulation
+    private Hub redHub, blueHub;
+    private TroopSpawner redSpawn1 ,redSpawn2, blueSpawn1, blueSpawn2;
+    private DefenseTower redtower1, redtower2, bluetower1, bluetower2;
+    
     public Battleground()
     {    
         super(960, 640, 1);
@@ -70,20 +69,20 @@ public class Battleground extends World
         GreenfootImage background = new GreenfootImage("background.jpeg");
         setBackground(background);
         
-        Hub redHub = new Hub(true, 125, 125, RED_HUB_HP, 200, RED_HUB_CHARGE_DELAY);
-        Hub blueHub = new Hub(false, 125, 125, BLUE_HUB_HP, 200, BLUE_HUB_CHARGE_DELAY);
+        redHub = new Hub(true, 125, 125, RED_HUB_HP, 200, RED_HUB_CHARGE_DELAY);
+        blueHub = new Hub(false, 125, 125, BLUE_HUB_HP, 200, BLUE_HUB_CHARGE_DELAY);
         
         addObject(redHub, getWidth() / 14, getHeight() / 2);
         addObject(blueHub, getWidth() / 14 * 13, getHeight() / 2);
         
-        TroopSpawner redSpawn1 = new TroopSpawner(true);
-        TroopSpawner redSpawn2 = new TroopSpawner(true);
+        redSpawn1 = new TroopSpawner(true);
+        redSpawn2 = new TroopSpawner(true);
         
         addObject(redSpawn1, RED_BARRACK_X, RED_BARRACK_1_Y);
         addObject(redSpawn2, RED_BARRACK_X, RED_BARRACK_2_Y);
         
-        TroopSpawner blueSpawn1 = new TroopSpawner(false);
-        TroopSpawner blueSpawn2 = new TroopSpawner(false);
+        blueSpawn1 = new TroopSpawner(false);
+        blueSpawn2 = new TroopSpawner(false);
         
         addObject(blueSpawn1, BLUE_BARRACK_X, BLUE_BARRACK_1_Y);
         addObject(blueSpawn2, BLUE_BARRACK_X, BLUE_BARRACK_2_Y);
@@ -103,8 +102,17 @@ public class Battleground extends World
         selectedTrack.playLoop();
     }
     
-    public void started()
+    public void act()
     {
-        
+        if (redHub.isDestroyed())
+        {
+            selectedTrack.stop();
+            Greenfoot.setWorld(new BlueVictory());
+        }
+        else if (blueHub.isDestroyed())
+        {
+            selectedTrack.stop();
+            Greenfoot.setWorld(new RedVictory());
+        }
     }
 }

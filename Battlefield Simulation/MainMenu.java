@@ -21,7 +21,6 @@ public class MainMenu extends World
      */
     public MainMenu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(960, 640, 1); 
         bkgrnd.scale(960, 640);
         setBackground(bkgrnd);
@@ -35,6 +34,7 @@ public class MainMenu extends World
         // Track 3 button
         InfoBtn infoBtn = new InfoBtn();
         addObject(infoBtn, getWidth() / 2, getHeight() / 2 + 150);
+        
     }
     
     public void started()

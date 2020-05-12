@@ -90,6 +90,16 @@ public class Hub extends Building
     }    
     
     /**
+     * Check if the Hub is destroyed
+     * 
+     * @return boolean True if Hub HP is less than or equal to 0.
+     */
+    public boolean isDestroyed()
+    {
+        return currHP <= 0;
+    }
+    
+    /**
      * Spawn a building in an empty preset spot.
      */
     private void spawnBuilding()
