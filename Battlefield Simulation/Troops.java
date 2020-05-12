@@ -34,17 +34,16 @@ public abstract class Troops extends Actor
     protected final int speed_Tank = 1;
     protected final int sight_Tank = 135;
     
-    protected final int healthBarY = -30;
+    protected final int healthBarY = -30;//healthbar offset
     
     protected int speed;
     protected int maxHp;
     protected int hp;
     protected int damage;
+    protected int sight;
     
     protected boolean isRed; // If troop is on team red, then statement would be true
     protected int direction;
-    
-    protected int sight;
     
     protected int cooldown;
     protected int cooldownTimer;
@@ -122,7 +121,7 @@ public abstract class Troops extends Actor
             
             if(closestBuilding != null){
                 turnTowards(closestBuilding.getX(), closestBuilding.getY());
-                if(distance(closestBuilding, this) <= sight){
+                if(distance(closestBuilding, this) <= sight){//only attack the building when in range
                     if(cooldownTimer <= 0){
                         attackEnemy();
                         cooldownTimer = cooldown;

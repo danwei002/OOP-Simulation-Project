@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Write a description of class Medic here.
  * 
- * @author (your name) 
+ * @author Howard Yang
  * @version (a version number or a date)
  */
 public class Medic extends Troops

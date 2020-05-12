@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class HealBullet here.
  * 
- * @author (your name) 
+ * @author Howard Yang 
  * @version (a version number or a date)
  */
 public class HealBullet extends Projectiles

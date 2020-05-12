@@ -86,7 +86,9 @@ public class Ninja extends Troops
         }
         this.hp -= damage;
         healthBar.update(hp);
-        checkDead();
+        if(hp <= 0){
+            die();
+        }
     }
     
     public void act() 

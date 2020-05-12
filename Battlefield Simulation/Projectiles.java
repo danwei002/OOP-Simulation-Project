@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Projectiles here.
+ * Parent class for all the objects shot by troops/buildings in the simulation
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Projectiles extends Actor
+public abstract class Projectiles extends Actor
 {
     /**
      * Act - do whatever the Projectiles wants to do. This method is called whenever
@@ -22,10 +22,6 @@ public class Projectiles extends Actor
     protected Actor shooter;
     //which team the projectile belongs to
     protected boolean team;
-    public void act() 
-    {
-        // Add your action code here.
-    }    
     
     /**
      * Check if the projectile collides with any buildings/troops

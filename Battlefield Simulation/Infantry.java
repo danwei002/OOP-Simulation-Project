@@ -27,12 +27,12 @@ public class Infantry extends Troops
         this.speed = speed_Infantry;
         this.sight = sight_Infantry;
         if(isRed == true){
-            this.setImage("infantryR.png");
-            direction = 0;
+            setImage("infantryR.png");
+            //direction = 0;
         }
         else{
-            this.setImage("infantryB.png");
-            direction = 180;
+            setImage("infantryB.png");
+            //direction = 180;
         }
     }
     public Infantry(boolean isRed, int hp, int speed, int damage, int sight){
@@ -46,12 +46,12 @@ public class Infantry extends Troops
         this.sight = sight;
         
         if(isRed == true){
-            this.setImage("infantryR.png");
-            direction = 0;
+            setImage("infantryR.png");
+            //direction = 0;
         }
         else{
-            this.setImage("infantryB.png");
-            direction = 180;
+            setImage("infantryB.png");
+            //direction = 180;
         }
     }
     
