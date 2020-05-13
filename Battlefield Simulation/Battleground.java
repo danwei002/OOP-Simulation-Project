@@ -48,7 +48,7 @@ public class Battleground extends World
     public static int BLUE_HUB_HP = 5000;
     public static int BLUE_HUB_CHARGE_DELAY = 5;
     
-    public static int RED_TROOP_SPAWN_RATE = 1;
+    public static int RED_TROOP_SPAWN_RATE = 2;
     public static int BLUE_TROOP_SPAWN_RATE = 2;
     
     public static int RED_DEF_MAX_CHARGE = 100;
