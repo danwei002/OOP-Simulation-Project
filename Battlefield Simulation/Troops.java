@@ -49,6 +49,8 @@ public abstract class Troops extends Actor
     protected int cooldownTimer;
     
     protected TroopHealthBar healthBar;
+    
+    protected GreenfootSound dieSound = new GreenfootSound("troopDeathSound.mp3");
     /**
      * Overrides the addedToWorld method in actor
      */
@@ -67,6 +69,7 @@ public abstract class Troops extends Actor
      * Removes the troop and it's healthbar
      */
     protected void die(){
+        dieSound.play();
         getWorld().removeObject(healthBar);
         getWorld().removeObject(this);
     }
