@@ -1,6 +1,13 @@
 import greenfoot.*;
 import java.util.*;
 
+/**
+ * Textboxes are used in the Options World to allow
+ * the user to input any changes to simulation's variables.
+ * 
+ * @author Owen Zhu
+ * @version May 13, 2020
+ */
 public class Textbox extends Actor
 {
     private static final int MAX_INPUT_WIDTH = 10;

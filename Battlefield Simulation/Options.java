@@ -1,9 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
- * Write a description of class Options here.
+ * A world where the user can change the simulation
+ * by manipulating some variables.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Owen Zhu
+ * @version May 13, 2020
  */
 public class Options extends World
 {

@@ -2,10 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class DefenseTower here.
+ * DefenseTowers are defensive buildings with limited sight ranges
+ * that target troops. They deal massive damage.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Owen Zhu
+ * @version May 14, 2020
  */
 public class DefenseTower extends Building
 {

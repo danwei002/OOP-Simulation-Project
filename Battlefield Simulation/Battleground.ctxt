@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Battleground
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Battleground\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ main\ world\ for\ the\ simulation.\r\n\ \r\n\ @author\ Daniel\ Wei,\ Owen\ Zhu,\ Stanley\ Wang,\ Howard\ Yang,\ Roy\ Sun\r\n\ @version\ May\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=Battleground()
 comment2.params=

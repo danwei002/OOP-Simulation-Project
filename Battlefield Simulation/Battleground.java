@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Battleground here.
+ * The main world for the simulation.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei, Owen Zhu, Stanley Wang, Howard Yang, Roy Sun
+ * @version May 14, 2020
  */
 public class Battleground extends World
 {

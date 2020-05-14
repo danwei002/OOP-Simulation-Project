@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Parent class for all the objects shot by troops/buildings in the simulation
  * 
- * @author (your name) 
+ * @author Howard Yang
  * @version (a version number or a date)
  */
 public abstract class Projectiles extends Actor

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=DefenseTower
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DefenseTower\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ DefenseTowers\ are\ defensive\ buildings\ with\ limited\ sight\ ranges\r\n\ that\ target\ troops.\ They\ deal\ massive\ damage.\r\n\ \r\n\ @author\ Owen\ Zhu\r\n\ @version\ May\ 14,\ 2020\r\n
 comment1.params=isRed\ width\ height\ maxHP\ maxCharge\ delay
 comment1.target=DefenseTower(boolean,\ int,\ int,\ int,\ int,\ int)
 comment1.text=\r\n\ Create\ a\ Troop\ Spawner\ building.\r\n\ \r\n\ @param\ isRed\ True\ if\ this\ building\ belongs\ to\ the\ red\ team,\ false\ if\ blue\ team.\r\n\ @param\ width\ Width\ of\ the\ building.\r\n\ @param\ height\ Height\ of\ the\ building.\r\n\ @param\ maxHP\ Maximum\ HP\ this\ building\ has.\r\n\ @param\ maxCharge\ Amount\ of\ charge\ the\ building\ must\ accumulate\ to\ spawn\ a\ new\ troop.\r\n\ @param\ delay\ Rate\ at\ which\ charge\ is\ acquired.\ Larger\ numbers\ mean\ slower\ charge\ acquisition.\r\n

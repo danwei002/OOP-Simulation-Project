@@ -53,15 +53,6 @@ public abstract class Building extends Actor
     protected int explodeIndex = 0;
     
     /**
-     * Act - do whatever the Building wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        
-    }    
-    
-    /**
      * Put the building's stat bar either above or below the building
      * 
      * @param above True if above building, false if below

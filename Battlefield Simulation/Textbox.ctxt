@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Textbox
+comment0.text=\r\n\ Textboxes\ are\ used\ in\ the\ Options\ World\ to\ allow\r\n\ the\ user\ to\ input\ any\ changes\ to\ simulation's\ variables.\r\n\ \r\n\ @author\ Owen\ Zhu\r\n\ @version\ May\ 13,\ 2020\r\n
 comment1.params=
 comment1.target=Textbox()
 comment2.params=

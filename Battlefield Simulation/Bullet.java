@@ -1,9 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bullet here.
+ * Projectiles shot by the troops in the simulation.
+ * These projectiles damage whatever they hit.
  * 
- * @author (your name) 
+ * @author Howard Yang
  * @version (a version number or a date)
  */
 public class Bullet extends Projectiles

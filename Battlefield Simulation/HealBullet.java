@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HealBullet here.
+ * HealBullets are projectiles
+ * that heal troops they hit.
  * 
  * @author Howard Yang 
  * @version (a version number or a date)
