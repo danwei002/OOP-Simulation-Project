@@ -1,7 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The main world for the simulation.
+ * The main world for the simulation. In this simulation, two teams,
+ * red and blue, fight each other until one comes out victorious. Each
+ * team starts with one Hub, two TroopSpawners, and two DefenseTowers and
+ * begin spawning troops to march down to attack the enemy buildings/troops.
+ * A team wins when they manage to destroy the enemy Hub.
+ * 
  * 
  * @author Daniel Wei, Owen Zhu, Stanley Wang, Howard Yang, Roy Sun
  * @version May 14, 2020
