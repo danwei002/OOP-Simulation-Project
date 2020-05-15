@@ -20,6 +20,9 @@ public class OptionsBtn extends Button
         setImage(unselectedImg);
     }
     
+    /**
+     * Behaviour when clicked
+     */
     public void onClick()
     {
         World w = new Options();

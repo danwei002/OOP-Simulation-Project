@@ -6,4 +6,5 @@ comment1.target=InfoBtn()
 comment1.text=\r\n\ Create\ an\ InfoBtn\r\n
 comment2.params=
 comment2.target=void\ onClick()
+comment2.text=\r\n\ Behaviour\ when\ clicked\r\n
 numComments=3

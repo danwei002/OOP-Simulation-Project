@@ -15,12 +15,16 @@ public class Textbox extends Actor
      
     private String text;
       
+    /**
+     * Create a Textbox
+     */
     public Textbox()
     {
         text = "";
         updateImage();
     }
-      
+    
+    // Update textbox image
     private void updateImage()
     {
         GreenfootImage image = new GreenfootImage(15*MAX_INPUT_WIDTH, 30);
@@ -59,6 +63,11 @@ public class Textbox extends Actor
         }
     }
      
+    /**
+     * Get the string value of the textbox's contents
+     * 
+     * @return String The text inside the textbox.
+     */
     public String transferValue()
     {
         return text;

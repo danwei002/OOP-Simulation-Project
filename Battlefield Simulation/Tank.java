@@ -4,10 +4,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Tank is a troop that has high health, low speed, and medium damage
  * 
  * @author Roy Sun 
- * @version (a version number or a date)
+ * @version April 2020
  */
 public class Tank extends Troops
 {
+    /**
+     * Create a Tank of the specified team.
+     * 
+     * @param isRed True if red team, false if blue team.
+     */
     public Tank(boolean isRed){
         cooldownTimer = 70;
         cooldown = cooldownTimer;
@@ -25,6 +30,15 @@ public class Tank extends Troops
         }
     }
     
+    /**
+     * Create a Tank of the specified team, with specified hp, speed, damage, and sight range.
+     * 
+     * @param isRed True if red team, false if blue team.
+     * @param hp HP the tank starts with.
+     * @param speed Speed the tank marches downt the battlefield.
+     * @param damage Damage the tank's bullets deal.
+     * @param sight Sight range of the tank.
+     */
     public Tank(boolean isRed, int hp, int maxHp, int speed, int damage, int sight){
         cooldownTimer = 70;
         cooldown = cooldownTimer;
@@ -50,6 +64,9 @@ public class Tank extends Troops
         }
     }
     
+    /**
+     * Creates a bullet that travels in the direction the troop is facing
+     */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());
     }

@@ -1,13 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Infantry here.
+ * Infantries are standard troops that march down the
+ * battlefield and shoot the nearest enemy troop/building
  * 
  * @author Howard Yang, Roy Sun
- * @version (a version number or a date)
+ * @version April 2020
  */
-
-
 public class Infantry extends Troops
 {
     /**
@@ -16,7 +15,11 @@ public class Infantry extends Troops
      */
     
     
-    
+    /**
+     * Create an Infantry of the specified team.
+     * 
+     * @param isRed True if red team, false if blue team.
+     */
     public Infantry(boolean isRed){
         cooldown = 25;
         cooldownTimer = cooldown;
@@ -35,6 +38,16 @@ public class Infantry extends Troops
             //direction = 180;
         }
     }
+    
+    /**
+     * Create an Infantry of the specified team, with specified hp, speed, damage, and sight range.
+     * 
+     * @param isRed True if red team, false if blue team.
+     * @param hp HP the infantry starts with.
+     * @param speed Speed the infantry marches downt the battlefield.
+     * @param damage Damage the infantry's bullets deal.
+     * @param sight Sight range of the infantry.
+     */
     public Infantry(boolean isRed, int hp, int speed, int damage, int sight){
         cooldown = 25;
         cooldownTimer = cooldown;
@@ -55,7 +68,16 @@ public class Infantry extends Troops
         }
     }
     
-    // if troops are spawned in with less than max hp, for example being revived
+    /**
+     * Create an Infantry of the specified team, with specified current hp, max hp, speed, damage, and sight range.
+     * 
+     * @param isRed True if red team, false if blue team.
+     * @param hp HP the infantry starts with.
+     * @param maxHp MaxHP of the infantry.
+     * @param speed Speed the infantry marches downt the battlefield.
+     * @param damage Damage the infantry's bullets deal.
+     * @param sight Sight range of the infantry.
+     */
     public Infantry(boolean isRed, int hp, int maxHp, int speed, int damage, int sight){
         cooldown = 25;
         cooldownTimer = cooldown;
@@ -83,8 +105,9 @@ public class Infantry extends Troops
             cooldownTimer--;
         }
     }
+    
     /**
-     * creates a bullet that travels in the direction the troop is facing
+     * Creates a bullet that travels in the direction the troop is facing
      */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());

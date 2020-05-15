@@ -14,6 +14,8 @@ public class Options extends World
      * 
      */
     GreenfootImage image;
+    
+    // Input textboxes
     private Textbox blueHubHp,redHubHp,blueHubCharge,redHubCharge,blueTroopRate,redTroopRate,blueDefMaxCharge,redDefMaxCharge,blueArtFireRate,redArtFireRate;
     public Options()
     {    
@@ -68,6 +70,7 @@ public class Options extends World
     
     public void act()
     {
+        // Input reading
         try{int i = Integer.parseInt(blueHubHp.transferValue());
             if(i>0) Battleground.BLUE_HUB_HP=i;
         }catch(NumberFormatException e){} 

@@ -6,14 +6,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * It has the special ability to turn invulnerable when not attacking
  * 
  * @author Stanley Wang
- * @version (a version number or a date)
+ * @version April 2020
  */
 public class Ninja extends Troops
 {
     
     public boolean invulnerability = true;
     
-    //
+    /**
+     * Create a Ninja with specified team.
+     * 
+     * @param isRed True if red team, false if blue team.
+     */
     public Ninja(boolean isRed){
         cooldown = 10;
         cooldownTimer = cooldown;
@@ -33,7 +37,15 @@ public class Ninja extends Troops
         }
     }
     
-    //
+     /**
+     * Create a Ninja of the specified team, with specified hp, speed, damage, and sight range.
+     * 
+     * @param isRed True if red team, false if blue team.
+     * @param hp HP the ninja starts with.
+     * @param speed Speed the ninja marches downt the battlefield.
+     * @param damage Damage the ninja's projectiles deal.
+     * @param sight Sight range of the ninja.
+     */
     public Ninja(boolean isRed, int hp, int speed, int damage, int sight){
         cooldown = 10;
         cooldownTimer = cooldown;
@@ -54,7 +66,16 @@ public class Ninja extends Troops
         }
     }
     
-    //
+    /**
+     * Create a Ninja of the specified team, with specified current hp, max hp, speed, damage, and sight range.
+     * 
+     * @param isRed True if red team, false if blue team.
+     * @param hp HP the ninja starts with.
+     * @param maxHp MaxHP of the ninja.
+     * @param speed Speed the ninja marches downt the battlefield.
+     * @param damage Damage the ninja's projectiles deal.
+     * @param sight Sight range of the ninja.
+     */
     public Ninja(boolean isRed, int hp, int maxHp, int speed, int damage, int sight){
         cooldown = 10;
         cooldownTimer = cooldown;
@@ -75,12 +96,20 @@ public class Ninja extends Troops
         }
     }
     
+    /**
+     * Marches the Ninja down the battlefield.
+     */
     protected void march(){
         move(speed);
         invulnerability = true;
         getImage().setTransparency(100);
     }
     
+    /**
+     * Make the ninja take damage
+     * 
+     * @param damage Damage taken.
+     */
     protected void takeDamage(int damage){
         if(invulnerability){
             return;
@@ -100,6 +129,9 @@ public class Ninja extends Troops
         }
     }
     
+    /**
+     * Creates a bullet that travels in the direction the troop is facing
+     */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),15, getRotation(), damage, "ninjaStar.png"), getX(), getY());
         invulnerability = false;

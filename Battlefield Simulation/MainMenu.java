@@ -25,13 +25,15 @@ public class MainMenu extends World
         bkgrnd.scale(960, 640);
         setBackground(bkgrnd);
         
+        // Start button
         StartBtn startBtn = new StartBtn();
         addObject(startBtn, getWidth() / 2, getHeight() / 2 - 100);
         
+        // Options menu button
         OptionsBtn optionsBtn = new OptionsBtn();
         addObject(optionsBtn, getWidth() / 2, getHeight() / 2 + 20);
         
-        // Track 3 button
+        // Information page button
         InfoBtn infoBtn = new InfoBtn();
         addObject(infoBtn, getWidth() / 2, getHeight() / 2 + 150);
         

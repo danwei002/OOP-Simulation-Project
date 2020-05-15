@@ -19,6 +19,9 @@ public class InfoBtn extends Button
         setImage(unselectedImg);
     }
     
+    /**
+     * Behaviour when clicked
+     */
     public void onClick()
     {
         World w = new Information();

@@ -9,7 +9,7 @@ import java.util.*;
  * all use a basic targeting AI to shoot at the enemy team
  * 
  * @author Howard Yang, Roy Sun, Stanley Wang
- * @version (a version number or a date)
+ * @version April 2020
  */
 public abstract class Troops extends Actor
 {
@@ -54,6 +54,7 @@ public abstract class Troops extends Actor
     protected TroopHealthBar healthBar;
     
     protected GreenfootSound dieSound = new GreenfootSound("troopDeathSound.mp3");
+    
     /**
      * Overrides the addedToWorld method in actor
      */
@@ -61,6 +62,7 @@ public abstract class Troops extends Actor
     protected void addedToWorld(World w){
         createHealthbar();
     }
+    
     /**
      * Creates a healthbar that follows the troop
      */
@@ -68,6 +70,7 @@ public abstract class Troops extends Actor
         healthBar = new TroopHealthBar(50, 10, 1, hp, maxHp, this, 0, healthBarY);
         getWorld().addObject(healthBar, getX(), getY());
     }
+    
     /**
      * Removes the troop and it's healthbar
      */
@@ -76,6 +79,7 @@ public abstract class Troops extends Actor
         getWorld().removeObject(healthBar);
         getWorld().removeObject(this);
     }
+    
     /**
      * Setter for the range of the troop's line of vision
      * 
@@ -84,6 +88,7 @@ public abstract class Troops extends Actor
     protected void changeSight(int newSight){
         sight = newSight;
     }
+    
     /**
      * Decrease the troop's health with a set amount of damage
      * 
@@ -96,9 +101,9 @@ public abstract class Troops extends Actor
             die();
         }
     }
+    
     /**
      * Main AI for the troop, targets enemy troops in range before enemy buildings
-     * 
      */
     protected void target(){
         boolean enemyInRange = false;
@@ -137,12 +142,14 @@ public abstract class Troops extends Actor
             }
         }
       }
+      
     /**
-     * moves the troop in the direction the actor is facing
+     * Moves the troop in the direction the actor is facing
      */
     protected void march(){
          move(speed); 
     }
+    
     /**
      * Helper method to find the closest building to the current troop instance
      * 
@@ -167,6 +174,7 @@ public abstract class Troops extends Actor
         }
         return closestBuilding;
     }
+    
     /**
      * Helper to get distance between 2 actors
      */
@@ -179,15 +187,16 @@ public abstract class Troops extends Actor
     }
     
     /**
-     * returns the boolean reference for the troops team
+     * Returns the boolean reference for the troops team
      * 
      * @return true if red/ false if blue
      */
     protected boolean getTeam(){
         return isRed;
     }
+    
     /**
-     * increases the hp of the current hp of the troop, checks if the heal will go over the max hp
+     * Increases the hp of the current hp of the troop, checks if the heal will go over the max hp
      * 
      * @param health the amount of hp to increase by
      */
@@ -200,12 +209,17 @@ public abstract class Troops extends Actor
     }
     /**
      * Getter for current hp
+     * 
+     * @return int Current HP of the Troop.
      */
     public int getHp(){
         return hp;
     }
+    
     /**
      * Getter for max hp
+     * 
+     * @return int Maximum HP of the Troop.
      */
     public int getMaxHp(){
         return maxHp;

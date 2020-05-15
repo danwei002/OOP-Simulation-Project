@@ -5,7 +5,7 @@ import java.util.*;
  * injured allies.
  * 
  * @author Howard Yang
- * @version (a version number or a date)
+ * @version April 2020
  */
 public class Medic extends Troops
 {
@@ -14,6 +14,12 @@ public class Medic extends Troops
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private int healAmount;
+    
+    /**
+     * Create a Medic with specified team.
+     * 
+     * @param isRed True if red team, false if blue team.
+     */
     public Medic(boolean isRed){
         this.isRed = isRed;
         cooldown = 25;
@@ -31,6 +37,7 @@ public class Medic extends Troops
             this.setImage("medicB.png");
         }
     }
+    
     public void act() 
     {
         // Add your action code here.
@@ -38,9 +45,10 @@ public class Medic extends Troops
         if(cooldownTimer > 0){
             cooldownTimer--;
         }
-    }    
+    } 
+    
     /**
-     * targets allies for healing before acting like a regular troop
+     * Targets allies for healing before acting like a regular troop
      */
     @Override
     protected void target(){//functions the same as regular except it checks for allies first
@@ -62,15 +70,17 @@ public class Medic extends Troops
         }
         else super.target();//if no allies in range, attack enemy troops/buildings normally
     }
+    
     /**
-     * creates a bullet that travels in the direction the troop is facing and hurts enemies
+     * Creates a bullet that travels in the direction the troop is facing and hurts enemies
      * that it comes in contact with
      */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());
     }
+    
     /**
-     * creates a healing bullet that travels in the direction the troop is facing
+     * Creates a healing bullet that travels in the direction the troop is facing
      */
     public void healAlly(){
        getWorld().addObject(new HealBullet(this, getTeam(),10, getRotation(), healAmount), getX(), getY());

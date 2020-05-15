@@ -1,12 +1,15 @@
 #BlueJ class context
 comment0.target=Tank
-comment0.text=\r\n\ Tank\ is\ a\ troop\ that\ has\ high\ health,\ low\ speed,\ and\ medium\ damage\r\n\ \r\n\ @author\ Roy\ Sun\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Tank\ is\ a\ troop\ that\ has\ high\ health,\ low\ speed,\ and\ medium\ damage\r\n\ \r\n\ @author\ Roy\ Sun\ \r\n\ @version\ April\ 2020\r\n
 comment1.params=isRed
 comment1.target=Tank(boolean)
+comment1.text=\r\n\ Create\ a\ Tank\ of\ the\ specified\ team.\r\n\ \r\n\ @param\ isRed\ True\ if\ red\ team,\ false\ if\ blue\ team.\r\n
 comment2.params=isRed\ hp\ maxHp\ speed\ damage\ sight
 comment2.target=Tank(boolean,\ int,\ int,\ int,\ int,\ int)
+comment2.text=\r\n\ Create\ a\ Tank\ of\ the\ specified\ team,\ with\ specified\ hp,\ speed,\ damage,\ and\ sight\ range.\r\n\ \r\n\ @param\ isRed\ True\ if\ red\ team,\ false\ if\ blue\ team.\r\n\ @param\ hp\ HP\ the\ tank\ starts\ with.\r\n\ @param\ speed\ Speed\ the\ tank\ marches\ downt\ the\ battlefield.\r\n\ @param\ damage\ Damage\ the\ tank's\ bullets\ deal.\r\n\ @param\ sight\ Sight\ range\ of\ the\ tank.\r\n
 comment3.params=
 comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ attackEnemy()
+comment4.text=\r\n\ Creates\ a\ bullet\ that\ travels\ in\ the\ direction\ the\ troop\ is\ facing\r\n
 numComments=5

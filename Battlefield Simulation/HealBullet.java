@@ -13,10 +13,20 @@ public class HealBullet extends Projectiles
      * Act - do whatever the HealBullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
     private Troops shooter;
     private int healAmount;
-    public HealBullet(Troops troop, boolean team, int bulletSpeed,
-    int bulletDirection, int healAmount){
+    
+    /**
+     * Create a HealBullet
+     * 
+     * @param troop Troop that shot the bullet.
+     * @param team The team the artillery that shot this bolt belongs to. True if red, false if blue.
+     * @param bulletSpeed Speed at which the bullet will travel.
+     * @param bulletDirection Direction at which the bullet will travel.
+     * @param healAmount The amount this bullet heals for when it collides with an allied troop.
+     */
+    public HealBullet(Troops troop, boolean team, int bulletSpeed, int bulletDirection, int healAmount){
         shooter = troop;
         this.team = team;
         speed = bulletSpeed;
@@ -24,6 +34,10 @@ public class HealBullet extends Projectiles
         this.healAmount = healAmount;
         setRotation(direction);
     }
+    
+    /**
+     * Collision detection method
+     */
     protected void checkCollision()
     {
         Troops t = (Troops) getOneIntersectingObject(Troops.class);
