@@ -1,7 +1,8 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 /**
- * Write a description of class Medic here.
+ * Medic is a slightly downgraded infantry with the ability to shoot healing bullets at
+ * injured allies.
  * 
  * @author Howard Yang
  * @version (a version number or a date)
@@ -42,7 +43,7 @@ public class Medic extends Troops
      * targets allies for healing before acting like a regular troop
      */
     @Override
-    protected void target(){
+    protected void target(){//functions the same as regular except it checks for allies first
         boolean allyInRange = false;
         
         for(Troops t: getObjectsInRange(sight, Troops.class)){
@@ -59,11 +60,18 @@ public class Medic extends Troops
                 cooldownTimer = cooldown;
             }
         }
-        else super.target();//if no allies in range, attack enemy troops/buildings
+        else super.target();//if no allies in range, attack enemy troops/buildings normally
     }
+    /**
+     * creates a bullet that travels in the direction the troop is facing and hurts enemies
+     * that it comes in contact with
+     */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());
     }
+    /**
+     * creates a healing bullet that travels in the direction the troop is facing
+     */
     public void healAlly(){
        getWorld().addObject(new HealBullet(this, getTeam(),10, getRotation(), healAmount), getX(), getY());
        

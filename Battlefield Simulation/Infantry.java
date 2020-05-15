@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Write a description of class Infantry here.
  * 
- * @author (your name) 
+ * @author Howard Yang, Roy Sun
  * @version (a version number or a date)
  */
 
@@ -83,7 +83,9 @@ public class Infantry extends Troops
             cooldownTimer--;
         }
     }
-    
+    /**
+     * creates a bullet that travels in the direction the troop is facing
+     */
     public void attackEnemy(){
         getWorld().addObject(new Bullet(getTeam(),10, getRotation(), damage), getX(), getY());
     }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Ninja
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Ninja\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Ninja\ is\ a\ troop\ that\ has\ low\ health,\ high\ damage,\ very\ high\ speed\r\n\ \r\n\ It\ has\ the\ special\ ability\ to\ turn\ invulnerable\ when\ not\ attacking\r\n\ \r\n\ @author\ Stanley\ Wang\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=isRed
 comment1.target=Ninja(boolean)
 comment2.params=isRed\ hp\ speed\ damage\ sight

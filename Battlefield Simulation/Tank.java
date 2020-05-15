@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Tank here.
+ * Tank is a troop that has high health, low speed, and medium damage
  * 
- * @author (your name) 
+ * @author Roy Sun 
  * @version (a version number or a date)
  */
 public class Tank extends Troops

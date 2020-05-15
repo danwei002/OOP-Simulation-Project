@@ -1,9 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Ninja here.
+ * Ninja is a troop that has low health, high damage, very high speed
  * 
- * @author (your name) 
+ * It has the special ability to turn invulnerable when not attacking
+ * 
+ * @author Stanley Wang
  * @version (a version number or a date)
  */
 public class Ninja extends Troops
@@ -74,7 +76,6 @@ public class Ninja extends Troops
     }
     
     protected void march(){
-        this.setRotation(direction);
         move(speed);
         invulnerability = true;
         getImage().setTransparency(100);

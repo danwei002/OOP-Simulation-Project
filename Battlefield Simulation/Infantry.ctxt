@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Infantry
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Infantry\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Infantry\ here.\r\n\ \r\n\ @author\ Howard\ Yang,\ Roy\ Sun\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=isRed
 comment1.target=Infantry(boolean)
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Infantry\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
@@ -12,4 +12,5 @@ comment4.params=
 comment4.target=void\ act()
 comment5.params=
 comment5.target=void\ attackEnemy()
+comment5.text=\r\n\ creates\ a\ bullet\ that\ travels\ in\ the\ direction\ the\ troop\ is\ facing\r\n
 numComments=6

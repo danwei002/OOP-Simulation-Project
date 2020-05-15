@@ -3,9 +3,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * lol this a troop
+ * Troops are the the basic units in the simulation,
+ * some have special abilities or specialized stats
  * 
- * @author (your name) 
+ * all use a basic targeting AI to shoot at the enemy team
+ * 
+ * @author Howard Yang, Roy Sun, Stanley Wang
  * @version (a version number or a date)
  */
 public abstract class Troops extends Actor
@@ -22,7 +25,7 @@ public abstract class Troops extends Actor
     protected final int sight_Ninja = 100;
     
     // Medic stats
-    protected final int maxHp_Medic = 100;
+    protected final int maxHp_Medic = 80;
     protected final int speed_Medic = 2;
     protected final int damage_Medic = 10;
     protected final int sight_Medic = 200;
@@ -130,10 +133,16 @@ public abstract class Troops extends Actor
                         cooldownTimer = cooldown;
                     }
                 }
-                else move(speed);
+                else march();
             }
         }
       }
+    /**
+     * moves the troop in the direction the actor is facing
+     */
+    protected void march(){
+         move(speed); 
+    }
     /**
      * Helper method to find the closest building to the current troop instance
      * 
